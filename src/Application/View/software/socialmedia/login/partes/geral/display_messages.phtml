@@ -1,0 +1,21 @@
+<div id="login_display_messages" >
+    <div class="row clearfix" style="margin-bottom: 200px;">
+        <div class="col-md-12 column">
+            <div class="alert alert-success alert-dismissable" 
+                 style=" margin-bottom: 60px; 
+                 background-color: #fff;
+                 border: 0px">
+                <h2 style="text-align: center">
+                    <?php if (Geekx\Session::get("erro")): ?>
+                        Atenção! <strong><?= Geekx\Session::get("erro"); ?></strong>
+                    <?php elseif (Geekx\Session::get("cadastro-msg")): ?>
+                        Atenção! <strong><?= Geekx\Session::get("cadastro-msg"); ?></strong>
+                    <?php endif; ?>
+                </h2>
+            </div>
+        </div>  
+    </div>
+</div>
+</div>
+</div>
+

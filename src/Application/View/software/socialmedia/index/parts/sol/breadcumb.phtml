@@ -1,0 +1,26 @@
+ <section class="content-header">
+    <h1>Painel de Solicitações
+        <?php if (Geekx\Session::get("convite_page")): ?>
+            <small>Novo convite</small>
+        <?php elseif (Geekx\Session::get("convites_externos_pendentes")): ?>
+            <small>Convites externos pendentes</small>
+        <?php elseif (Geekx\Session::get("convites_internos_pendentes")): ?>
+            <small>Convites internos pendentes</small>
+        <?php elseif (Geekx\Session::get("convites_recebidos")): ?>
+            <small>Convites recebidos</small>
+        <?php endif; ?>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?= SITE_URL; ?>/index"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li class="active"><a href="<?= SITE_URL; ?>/sol">Solicitações</a></li>
+        <?php if (Geekx\Session::get("convite_page")): ?>
+            <li class="active">Novo</li>
+        <?php elseif (Geekx\Session::get("convites_externos_pendentes")): ?>
+            <li class="active">Pendentes</li>
+        <?php elseif (Geekx\Session::get("convites_internos_pendentes")): ?>
+            <li class="active">Pendentes</li>
+        <?php elseif (Geekx\Session::get("convites_recebidos")): ?>
+            <li class="active">Pendentes</li>
+        <?php endif; ?>
+    </ol>
+</section>

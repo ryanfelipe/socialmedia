@@ -1,0 +1,89 @@
+<div class="row">
+    <?php
+    /*
+    |---------Convites enviados para usuários externos-------
+    |Primeiro componente da página principal de solicitações
+    |--------------------------------------------------------
+    */
+    ?>
+    <div class="col-lg-3 col-xs-6">                       
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <p>Você possui</p>
+                <h3 id="externos_enviados"></h3>
+                <p>Solicitações para usuários não cadastrados.</p>              
+                <strong><p>Enviadas</p></strong>
+            </div>
+            <div class="icon">
+                <i class="fa fa-archive"></i>
+            </div>
+            <a id="ncadastrados" href="<?= SITE_URL; ?>/convite/conEnvPenExt" 
+            class="small-box-footer">
+                Ver Mais <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <?php
+    /*
+    |--------Convites enviadas pra usuários internas--------
+    |Segundo componente da página principal de solicitações
+    |-------------------------------------------------------
+    */
+    ?>
+    <div class="col-lg-3 col-xs-6">    
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <p>Você possui</p>
+                <h3 id="internos_enviados"></h3>
+                <p>Solicitações para usuários cadastrados.</p>
+                <strong><p>Enviadas</p></strong>
+            </div>
+            <div class="icon">                
+                <i class="fa fa-archive"></i>               
+            </div>
+            <a href="<?= SITE_URL; ?>/convite/conEnvPenInt" class="small-box-footer">
+                Ver Mais <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <?php
+    /*
+    |-------------------Convites recebidos-------------------
+    |Terceiro componente da página principal de solicitações
+    |--------------------------------------------------------
+    */
+    ?>
+    <div class="col-lg-3 col-xs-6">                    
+        <div class="small-box bg-aqua">
+            <div class="inner">
+                <p>Você possui</p>
+                <h3 id="recebidos"></h3>
+                <p>Lista de todas as solicitações de amizade recebidas.</p>
+                <strong><p>Recebidas</p></strong>
+            </div>
+            <div class="icon">                
+                <i class="fa fa-archive"></i>               
+            </div>
+            <a href="<?= SITE_URL; ?>/convite/conRec" class="small-box-footer">
+                Ver Mais <i class="fa fa-arrow-circle-right"></i>
+            </a>
+        </div>
+    </div>
+    <?php
+    /*
+    |-----------------------------Envia novo convite--------------------------------
+    |Quarto componente da página principal de solicitações - Envia um novo convite
+    |-------------------------------------------------------------------------------
+    */
+    ?>
+    <div class="col-lg-3 col-xs-6">
+        <div class="info-box bg-red">
+            <span class="info-box-icon"><i class="fa fa-users"></i></span>
+            <div class="info-box-content">                
+                <a href="<?= SITE_URL; ?>/convite/novoConvite" role="button" 
+                style="color: white"><h4>Enviar um convite</h4>
+                </a>
+            </div>
+        </div>
+    </div>  
+</div>

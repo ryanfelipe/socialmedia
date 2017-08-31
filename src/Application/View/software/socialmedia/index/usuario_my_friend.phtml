@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>   
+    <?php
+    /*
+    |-----------------------------------------------
+    |Início do bloco que carrega o head!
+    |-----------------------------------------------
+    */
+    ?>
+    <?php $this->loadView("index/parts/general/head"); ?>
+    </head>
+    <body class="hold-transition skin-blue sidebar-mini fixed">
+        <div class="wrapper">
+            <?php
+            /*
+            |-----------------------------------------------
+            |Início do bloco que carrega o header!
+            |-----------------------------------------------
+            */
+            ?>
+            <?php
+            $this->loadView("index/parts/general/header");
+            ?>
+            <?php
+            /*
+            |-----------------------------------------------
+            |Início do do bloco que carrega o sidebar!
+            |-----------------------------------------------
+            */
+            ?>
+            <?php
+            $this->loadView("index/parts/general/sidebar_left2");
+            ?>
+            <div class="content-wrapper">
+                <?php
+                /*
+                |-----------------------------------------------
+                |Início breadcumb
+                |-----------------------------------------------
+                */
+                ?>
+                <section class="content-header">
+                    <h1>
+                        <?=$usuario['nome'].' '.$usuario['sobrenome'];?>
+                        <small>Perfil de usuário</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="<?= SITE_URL; ?>/index"><i class="fa fa-dashboard"></i>Home</a></li>
+                        <li class="active">
+                            Perfil de usuário
+                        </li>
+                        <?php if (Geekx\Session::get("edit_users")): ?>
+                            <li class="active">
+                                Edição
+                            </li>
+                        <?php endif; ?>
+                    </ol>
+                </section>
+                <section class="content">             
+                        <?php
+                        /*
+                        |-----------------------------------------------
+                        |Início do bloco do conteúdo padrão
+                        |-----------------------------------------------
+                        */
+                        ?>
+                        <div class="row">
+                            <div class="col-md-8">
+                                <div class="box box-widget widget-user">
+                                    <?php
+                                    /*
+                                    |-----------------------------------------------
+                                    |Início foto de capa
+                                    |-----------------------------------------------
+                                    */
+                                    ?>
+                                    <?php if($usuario['fotocapa'] == 'null'):?>
+                                    
+                                     <div class="widget-user-header" 
+                                        style="background: #F4F4F4; min-height: 220px; cursor: pointer; min-width: 600px;">
+                                            <div class="box-header">                                                           
+                                            <h3 class="box-title pull-right">                                                
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default">Amigos</button>
+                                                    <button type="button" class="btn btn-default dropdown-toggle" 
+                                                    data-toggle="dropdown" aria-expanded="false">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role = "menu">
+                                                        <li>
+                                                            <a class="desfazer_amizade" 
+                                                            id="<?=$usuario['e'].':'.$usuario['id'];?>" 
+                                                            style="cursor: pointer">Desfazer amizade</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </h3>
+                                        </div>                                    
+                                    </div>
+                                    <?php else: ?>
+                                        <div class="widget-user-header" 
+                                        style="background: url('<?= STATIC_URL_INTO ?>/dist/img/into/<?= $usuario['fotocapa'] ?>') center center;
+                                        min-height: 220px; cursor:pointer; min-width: 600px">
+                                            <div class="box-header">                                                           
+                                            <h3 class="box-title pull-right">                                                
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default">Amigos</button>
+                                                    <button type="button" class="btn btn-default dropdown-toggle" 
+                                                    data-toggle="dropdown" aria-expanded="false">
+                                                        <span class="caret"></span>
+                                                        <span class="sr-only">Toggle Dropdown</span>
+                                                    </button>
+                                                    <ul class="dropdown-menu" role = "menu">
+                                                        <li>
+                                                            <a class="desfazer_amizade" id="<?=$usuario['e'].':'.$usuario['id'];?>" 
+                                                            style="cursor: pointer">Desfazer amizade</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </h3>
+                                        </div>                                    
+                                    </div>
+                                    <?php endif; ?>
+                                    <?php
+                                    /*
+                                    |-----------------------------------------------
+                                    |Fim foto de capa
+                                    |-----------------------------------------------
+                                    */
+                                    ?>
+                                    <div class="widget-user-image">                                        
+                                        <img class="img-circle" src="<?= STATIC_URL_INTO.$usuario['fotoperfil']?>" alt="User Avatar">
+                                    </div>
+                                    <div class="box-footer">
+                                        <?php
+                                        /*
+                                        |-----------------------------------------------
+                                        |Informações básicas - Linha 1
+                                        |-----------------------------------------------
+                                        */
+                                        ?>
+                                        <div class="row">
+                                            <div class="col-sm-4 border-right">
+                                                <div class="description-block">                                
+                                                    <i class="fa fa-calendar margin-r-5"></i>
+                                                    <span class="description-text">
+                                                        Membro desde:
+                                                    </span>
+                                                    <h5 class="description-header"><?=$usuario['datcad']?></h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 border-right">
+                                                <div class="description-block">
+                                                    <h5 class="description-header"><?=$amigos[0]['num']?></h5>
+                                                    <i class="fa fa-group margin-r-5"></i>
+                                                    <!--<span class="description-text">
+                                                        <a href="<?= SITE_URL; ?>/network">Amigos</a>
+                                                    </span>-->
+                                                </div>
+                                            </div>                                            
+                                            <div class="col-sm-4">
+                                                <div class="description-block">                                
+                                                    <i class="fa fa-calendar margin-r-5"></i>
+                                                    <span class="description-text">
+                                                        Data de Nascimento:
+                                                    </span>
+                                                    <h5 class="description-header"><?=$usuario['nascimento']?></h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                        /*
+                                        |-----------------------------------------------
+                                        |Informações básicas - Linha 2
+                                        |-----------------------------------------------
+                                        */
+                                        ?>
+                                        <hr/>
+                                        <div class="row">                                            
+                                            <div class="col-sm-4 border-right">
+                                                <div class="description-block">
+                                                    <i class="fa fa-phone margin-r-5"></i>
+                                                    <span class="description-text">
+                                                        Fone
+                                                    </span>
+                                                    <?php if($usuario['fone'] == 'null'):?>
+                                                        <h5 class="description-header" style="color: #f00">Não informado</h5>
+                                                    <?php else:?>
+                                                        <h5 class="description-header"><?=$usuario['fone']?></h5>
+                                                    <?php endif;?>                                                                                                        
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <?php
+                                        /*
+                                        |-----------------------------------------------
+                                        |Verifica se a minibio está sendo carregada
+                                        |-----------------------------------------------
+                                        */
+                                        ?>
+                                        <?php if($usuario['minibio']):?>                             
+                                        <hr/>                                                        
+                                        <div class="row">                                            
+                                            <div class = "col-md-12">                                                
+                                                <div class = "box-header">
+                                                    <h3 class = "box-title">Sobre</h3>
+                                                    <br/>
+                                                    <br/>
+                                                    <p class = "text-muted">                                    
+                                                        <?=$usuario['minibio']?>
+                                                    </p> 
+                                                </div>                                                                    
+                                            </div>                                             
+                                        </div>
+                                        <?php else:?>
+                                        <?php endif; ?> 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>             
+                        <?php
+                        /*
+                        |-----------------------------------------------
+                        |Fim do bloco do conteúdo padrão
+                        |-----------------------------------------------
+                        */
+                        ?>
+                </section>
+            </div>
+            <?php
+            /*
+            |-----------------------------------------------
+            |Control Sidebar
+            |-----------------------------------------------
+            */
+            ?>
+            <?php $this->loadView("index/parts/general/control_sidebar"); ?>
+            <div class="control-sidebar-bg"></div>
+        </div>
+        <?php
+        /*
+        |-----------------------------------------------
+        |Início do bloco que carrega o Js
+        |-----------------------------------------------
+        */
+        ?>
+        <?php $this->loadView("index/parts/general/config_modais"); ?>
+        <?php $this->loadView("index/parts/index/load_js"); ?>             
+        <script src="<?= STATIC_URL_INTO ?>/dist/js/relationship.js"></script>     
+        <script src="<?= STATIC_URL_INTO ?>/dist/js/notifications.js"></script>  
+        <?php
+        /*
+        |-----------------------------------------------
+        |Início do bloco que tira os itens de sessão
+        |-----------------------------------------------
+        */
+        ?>            
+    </body>
+</html>

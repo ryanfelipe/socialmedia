@@ -1,0 +1,75 @@
+<?php if (Geekx\Session::get("erro_convite")): ?> 
+
+    <section class="content">
+        <div class="error-page">
+            <h2 class="headline text-red">08</h2>
+
+            <div class="error-content">
+                <h2><i class="fa fa-warning text-red"></i> <?php echo Geekx\Session::get("erro_convite") ?></h2>
+
+                <h4>
+                    Está página está sendo exibido porque já existe uma solicitação de 
+                    participação enviada para esse e-mail.                
+                </h4>          
+                <h4>
+                    Caso deseje, você pode 
+                    <a id="redireciona" href="<?= SITE_URL; ?>/convite/novoConvite">
+                        <i class="fa fa-send"></i>
+                        <span>Enviar um convite</span>                  
+                    </a>  
+                    novo.
+                </h4>          
+            </div>
+        </div>
+    </section>
+
+<?php elseif (Geekx\Session::get("erro_convidado")): ?>
+
+    <section class="content">
+        <div class="error-page">
+            <h2 class="headline text-red">11</h2>
+
+            <div class="error-content">
+                <h2><i class="fa fa-warning text-red"></i> <?php echo Geekx\Session::get("erro_convidado") ?></h2>
+
+                <h4>
+                    Está página está sendo exibido porque você não pode enviar um convite para o 
+                    seu prórpio e-mail de registro.                
+                </h4>          
+                <h4>
+                    Caso deseje, você pode 
+                    <a id="redireciona" href="<?= SITE_URL; ?>/convite/novoConvite">
+                        <i class="fa fa-send"></i>
+                        <span>Enviar um convite</span>                  
+                    </a>  
+                    novo.
+                </h4>          
+            </div>
+        </div>
+    </section>
+<?php elseif (Geekx\Session::get("convite_sucesso")): ?>
+
+    <section class="content">
+        <div class="error-page">
+            <h2 class="headline text-red">15</h2>
+
+            <div class="error-content">
+                <h2><i class="fa fa-warning text-red"></i> <?php echo Geekx\Session::get("convite_sucesso") ?></h2>
+
+                <h4>
+                    Parabéns, seu convite foi enviado com sucesso!
+                </h4>          
+                <h4>
+                    Caso deseje, você pode 
+                    <a id="redireciona" href="<?= SITE_URL; ?>/convite/novoConvite">
+                        <i class="fa fa-send"></i>
+                        <span>Enviar um convite</span>                  
+                    </a>  
+                    novo.
+                </h4>          
+            </div>
+        </div>
+    </section>
+
+
+<?php endif; ?>

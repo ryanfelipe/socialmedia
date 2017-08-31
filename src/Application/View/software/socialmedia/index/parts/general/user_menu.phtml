@@ -1,0 +1,42 @@
+<li class="dropdown user user-menu">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <img id="img_header" class="user-image">
+        <span class="hidden-xs" id="nome_sobrenome"></span>
+    </a>
+    <ul class="dropdown-menu">
+        <?php
+        /*
+        |------------------
+        |User Image--------
+        |------------------
+        */
+        ?>       
+        <li class="user-header">
+            <img id="img_header_2" class="img-circle">
+            <p id="nome_sobrenome_header">          
+            </p>
+        </li>                        
+        <?php
+        /*
+        |------------------
+        |Menu Footer--------
+        |------------------
+        */
+        ?>
+        <li class="user-footer">
+            <div class="pull-left margin-r-5">
+                <a class="btn btn-default btn-flat" href="<?= SITE_URL; ?>/usuario/edit/" class="">Editar Perfil</a>
+            </div>
+            <?php
+            /*
+            |<div class="pull-left">
+            |<a class="btn btn-default btn-flat" href="<?= SITE_URL; ?>/timeline/" class="">Timeline</a>
+            |</div>
+            */
+            ?>            
+            <div class="pull-right">
+                <a class="btn btn-default btn-flat" href="<?= SITE_URL; ?>/index/logout" class="">Sair</a>
+            </div>
+        </li>
+    </ul>
+</li>

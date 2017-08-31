@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>   
+    <?php
+    /*
+      |-----------------------------------------------
+      |Carrega o head!
+      |-----------------------------------------------
+     */
+    ?>
+    <?php $this->loadView("index/parts/chat/head"); ?>
+    <body class="hold-transition skin-blue">
+        <!--sidebar-mini fixed control-sidebar-open-->
+        <div class="wrapper">
+            <?php
+            /*
+              |-----------------------------------------------
+              |Carrega o header!
+              |-----------------------------------------------
+             */
+            ?>
+            <?php
+            $this->loadView("index/parts/general/header");
+            ?>
+            <?php
+            /*
+              |-----------------------------------------------
+              |Carrega o sidebar!
+              |-----------------------------------------------
+             */
+            ?>
+            <?php
+            $this->loadView("index/parts/general/sidebar_left2");
+            ?>
+            <div class="content-wrapper">
+                <?php
+                /*
+                  |-----------------------------------------------
+                  |Breadcumb
+                  |-----------------------------------------------
+                 */
+                ?>
+                <?php
+                $this->loadView("index/parts/chat/breadcrumb");
+                ?>
+                <section class="content conteudo_chat" id="conteudo">
+                    <?php
+                    /*
+                      |-----------------------------------
+                      |As conversas são carregadas aqui
+                      |----------------------------------
+                     */
+                    ?>                 
+                    <?php $this->loadView("index/parts/chat/conversa"); //Equanto não tiverem conversas carregadas essa linha é carregada por padrão?>
+                </section>
+            </div>            
+            <?php
+            /*
+              |-----------------------------------------------
+              |Control Sidebar
+              |-----------------------------------------------
+             */
+            ?>
+            <?php
+            $dados_user['usuario'] = $usuario;
+            $friends['amigos'] = $amigos;
+            $this->loadView("index/parts/chat/control_sidebar", $dados_user, $friends);
+            ?>
+            <div class="control-sidebar-bg"></div>
+            <?php
+            /*
+              |-----------------------------------------------
+              |Chat
+              |-----------------------------------------------
+             */
+            ?>
+            <aside id="chats">
+            </aside>
+        </div>
+        <?php
+        /*
+          |-----------------------------------------------
+          |Carrega os arquivos Js
+          |-----------------------------------------------
+         */
+        ?>
+        <?php $this->loadView("index/parts/general/config_modais"); ?>
+        <?php $this->loadView("index/parts/chat/load_js"); ?>
+        <?php
+        /*
+          |-----------------------------------------------
+          |Modais de aviso
+          |-----------------------------------------------
+         */
+        ?>
+        <?php $this->loadView("index/parts/chat/modais"); ?>
+    </body>
+</html>

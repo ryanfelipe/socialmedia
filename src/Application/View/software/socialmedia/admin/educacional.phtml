@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <?php $this->loadView("admin/parts/head"); ?>
+    <link rel="stylesheet" href="<?= STATIC_URL_INTO ?>/dist/css/search_admin.css">
+    </head>
+    <body class="hold-transition skin-red-light sidebar-mini fixed">
+        <div class="wrapper">
+            <?php
+            /*
+            |-----------------------------------------------
+            |Início do bloco que carrega o header!
+            |-----------------------------------------------
+            */
+            ?>
+            <header class="main-header">
+                <?php
+                /*
+                |----------------------------------------
+                |Nome da rede.
+                |----------------------------------------
+                */
+                ?>
+                <a href="<?= SITE_URL; ?>/admin" class="logo">
+                    <span class="logo-mini"><b>CF</b></span>
+                    <span class="logo-lg"><b>Capital|Futuro</b></span>
+                </a>
+                <nav class="navbar navbar-static-top">
+                    <?php
+                    /*
+                    |---------------------------------
+                    |Sidebar toggle button.
+                    |---------------------------------
+                    */
+                    ?>
+                    <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                        <span class="sr-only">Toggle navigation</span>
+                    </a>
+                    <div class="navbar-custom-menu">
+                        <ul class="nav navbar-nav">
+                            <?php
+                            /*
+                            |-----------------------------------------------
+                            |Carrega o user menu.
+                            |-----------------------------------------------
+                            */
+                            ?>
+                            <li class="dropdown user user-menu">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <span class="hidden-xs"><?= $admin["nome"].' '.$admin["sobrenome"]; ?></span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li class="user-footer" style="background-color: #fff">
+                                        <i class="fa fa-sign-out">
+                                        <a href="<?= SITE_URL; ?>/admin/logout">Sair</a>
+                                        </i>
+                                    </li>
+                                </ul>
+                            </li>
+                            <?php
+                            /*
+                            |-----------------------------------------
+                            |Chama o menu do chat e de configurações
+                            |-----------------------------------------
+                            */
+                            ?>
+                            <li>
+                                <a href="#" data-toggle="control-sidebar"><i class="fa fa-gear"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </header>
+            <?php
+            /*
+            |-----------------------------------------------
+            |Início do do bloco que carrega o sidebar!
+            |-----------------------------------------------
+            */
+            ?>
+            <?php
+            $this->loadView("admin/parts/sidebar_left2");
+            ?>
+            <div class="content-wrapper">
+                <section class="content">
+
+                    <?php if(Geekx\Session::get("add_categoria")):?>
+                        <?php $this->loadView("admin/educacional/form_categoria");?>
+
+                    <?php elseif(Geekx\Session::get("list_conteudo")):?>
+                        <?php $conteudo['educacional'] = $educacional;?>
+                        <?php $this->loadView("admin/educacional/list_conteudo", $conteudo);?>
+
+                    <?php elseif(Geekx\Session::get("edit_conteudo")):?>
+                        <?php $categorias['categorias'] = $categorias;?>
+                        <?php $row['educacional'] = $educacional;?>
+                        <?php $this->loadView("admin/educacional/edit_conteudo", $row, $categorias);?>
+
+                    <?php elseif (Geekx\Session::get("listaCategorias")):?>
+                      <?php $categorias['categorias'] = $categorias;?>
+                      <?php $this->loadView("admin/educacional/listaCategorias", $categorias);?>
+
+                    <?php else:?>
+                        <?php $dados['categorias'] = $categorias;?>
+                        <?php $this->loadView("admin/educacional/form_conteudo", $dados);?>
+
+                    <?php endif;?>
+
+                </section>
+            </div>
+            <?php $this->loadView("admin/parts/control_sidebar"); ?>
+            <div class="control-sidebar-bg"></div>
+        </div>
+        <?php
+        /*
+        |-----------------------------------------------
+        |Início do bloco que carrega o Js
+        |-----------------------------------------------
+        */
+        ?>
+        <?php $this->loadView("admin/parts/load_js"); ?>
+
+
+        <?php if (Geekx\Session::get("categoria_sucesso")): ?>
+            <?php Geekx\Session::delete("categoria_sucesso"); ?>
+        <?php endif; ?>
+        <?php if (Geekx\Session::get("conteudo_adicionado")): ?>
+            <?php Geekx\Session::delete("conteudo_adicionado"); ?>
+        <?php endif; ?>
+        <?php if (Geekx\Session::get("list_conteudo")): ?>
+            <?php Geekx\Session::delete("list_conteudo"); ?>
+        <?php endif; ?>
+        <?php if (Geekx\Session::get("edit_conteudo")): ?>
+            <?php Geekx\Session::delete("edit_conteudo"); ?>
+        <?php endif; ?>
+        <?php if (Geekx\Session::get("erro_update")): ?>
+            <?php Geekx\Session::delete("erro_update"); ?>
+        <?php endif; ?>
+        <?php if (Geekx\Session::get("success_update")): ?>
+            <?php Geekx\Session::delete("success_update"); ?>
+        <?php endif; ?>
+    </body>
+</html>

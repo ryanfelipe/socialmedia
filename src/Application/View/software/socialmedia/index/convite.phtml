@@ -1,0 +1,25 @@
+<section class="content">
+    <div class="col-md-4">
+        <div class="row">
+            <div class="box box-widget">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Enviar um convite por e-mail</h3>
+                </div>
+                <form role="form" method="post" action="<?= SITE_URL; ?>/convite/convidar">
+                    <input type="hidden" name="anfitriao" value="<?php echo Geekx\Session::get("id_usuario"); ?>" />
+                    <div class="box-body">
+                        <div class="form-group">
+                            <br/>                            
+                            <input class="form-control" id="exampleInputEmail1" 
+                                   placeholder="Insira o e-mail do convidado" name="convidado" 
+                                   type="email" required="true">
+                        </div>                                                                    
+                    </div>           
+                    <div class="box-footer">
+                        <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

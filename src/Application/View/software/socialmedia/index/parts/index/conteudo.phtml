@@ -1,0 +1,186 @@
+<div class="row">
+    <div class="col-md-8">
+        <div class="box box-widget widget-user">
+            <?php
+            /*
+              |------------------------------------------------------------------------
+              |A capa é chamada aqui através de javascript no arquivo funcoes_user.js
+              |-----------------------------------------------------------------------
+             */
+            ?>
+            <div class="widget-user-header" id="capa_user">                 
+                <div class="box-header">
+                    <h3 class="box-title pull-right">
+                        <a class="btn btn-default" href="<?= SITE_URL; ?>/usuario/edit" 
+                           role="button">Editar informações</a>
+                    </h3>
+                    <?php
+                    /*
+                      |------------------------------------------------------
+                      |É onde o botão da usado para alterar a foto de capa
+                      |é colocado.
+                      |------------------------------------------------------
+                     */
+                    ?>
+                    <h3 class="box-title pull-left" id="alterar_foto_capa">
+                        <a class="btn btn-default" 
+                           style="cursor:pointer" 
+                           role="button">Alterar foto de capa</a>
+                    </h3>
+                </div>                             
+            </div>
+            <div class="widget-user-image">
+                <img id="img_conteudo" class="img-circle" style="cursor:pointer">
+                <?php
+                /*
+                  |------------------------------------------------------
+                  |É onde o botão da usado para alterar a foto de perfil
+                  |é colocado.
+                  |------------------------------------------------------
+                 */
+                ?>
+                <div id="alterar_foto_perfil" class="pull-right"></div>
+            </div>
+            <div class="box-footer" style="padding-top: 10px; background: #f4f4f4">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span class="description-text">
+                            Informações básicas
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">                
+                <div class="row">
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">                                
+                            <i class="fa fa-calendar margin-r-5"></i>
+                            <span class="description-text">
+                                Membro desde:
+                            </span>
+                            <h5 class="description-header" id="datcad_conteudo"></h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header" id="num_amigos"></h5>
+                            <i class="fa fa-group margin-r-5"></i>
+                            <span class="description-text">
+                                <a href="<?= SITE_URL; ?>/network">Amigos</a>
+                            </span>
+                        </div>
+                    </div> 
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">                                
+                            <i class="fa fa-calendar margin-r-5"></i>
+                            <span class="description-text">
+                                Fone:
+                            </span>
+                            <h5 class="description-header" id="datcad_conteudo"></h5>
+                        </div>
+                    </div>
+                </div>                            
+                <hr/>                    
+                <div class="row"> 
+                    <div class = "col-md-12">
+                        <div class = "box-header">
+                            <h3 class = "box-title" style="margin-bottom: 10px;">Sobre</h3>                            
+                            <p class = "text-muted" id="minibio_conteudo">                                    
+                            </p> 
+                        </div>                            
+                    </div>
+                </div>                                  
+                <div class="row"> 
+                    <?php
+                    /*
+                      |------------------------------------------------------------------
+                      |Links Sociais, são carregados pelo arquivo load_links_sociais.js
+                      |------------------------------------------------------------------
+                     */
+                    ?>
+                    <div class = "col-md-12" id="links_sociais">                        
+                    </div>
+                </div>
+            </div>
+            <?php
+            /*
+              |------------------------------
+              |Prferências de investimento.--
+              |------------------------------
+             */
+            ?>
+            <div class="box-footer" style="padding-top: 10px; background: #f4f4f4">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <span class="description-text">
+                            Preferências de Investimento
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-footer">                
+                <div class="row">
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">                                
+                            <i class="fa fa-money margin-r-5"></i>
+                            <span class="description-text">
+                                Preferência 1:
+                            </span>
+                            <h5 id="pref1"></h5>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">                            
+                            <i class="fa fa-money margin-r-5"></i>
+                            <span class="description-text">
+                                Preferência 2:
+                            </span>
+                            <h5 id="pref2"></h5>
+                        </div>
+                    </div> 
+                    <div class="col-sm-4 border-right">
+                        <div class="description-block">                            
+                            <i class="fa fa-money margin-r-5"></i>
+                            <span class="description-text">
+                                Preferência 3:
+                            </span>
+                            <h5 id="pref3"></h5>
+                        </div>
+                    </div>                 
+                </div>                
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">            
+        <?php
+        /*
+          |----------------------------------------
+          |Preferências de Investimento.-----------
+          |----------------------------------------
+         */
+        ?>
+        <div class="info-box bg-green">
+            <span class="info-box-icon"><i class="fa fa-money"></i></span>
+            <div class="info-box-content">                
+                <a href="<?= SITE_URL; ?>/invest/edit_prefs" 
+                   role="button" style="color: white"><h4>Preferências de Investimento</h4>
+                </a>
+            </div>
+        </div>
+        <?php
+        /*
+          |----------------------------------------
+          |Links Sociais.--------------------------
+          |----------------------------------------
+         */
+        ?>            
+        <div class="info-box bg-blue">
+            <span class="info-box-icon"><i class="fa fa-users"></i></span>
+            <div class="info-box-content">                
+                <a href="<?= SITE_URL; ?>/sociais/edit_links_sociais" 
+                   role="button" 
+                   style="color: white"><h4>Links Sociais</h4></a>
+            </div>
+        </div>        
+    </div> 
+</div>

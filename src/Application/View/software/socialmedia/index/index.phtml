@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <?php $this->loadView("software/socialmedia/index/parts/general/head"); ?>
+    </head>
+<body class="hold-transition skin-red-light sidebar-mini fixed">
+    <div class="wrapper">
+
+        <?php $this->loadView("software/socialmedia/index/parts/general/header"); ?>
+        <?php $this->loadView("software/socialmedia/index/parts/general/sidebar_left2"); ?>
+
+        <div class="content-wrapper">
+
+            <?php //Início breadcumb ?>
+            <?php $this->loadView("software/socialmedia/index/parts/index/breadcumb"); ?>
+            
+            <section class="content" id="conteudo">
+
+                <?php //Responsável por abrir a edição dos usuários. ?>
+                <?php if (Geekx\Session::get("editUser")): ?>
+
+                    <?php $this->loadView("software/socialmedia/index/parts/index/edit_page"); ?>
+
+                <?php //Responsável por abrir a edição de preferências. ?>
+                <?php elseif (Geekx\Session::get("editPrefInv")): ?>
+
+                    <?php $this->loadView("software/socialmedia/index/parts/index/edit_prefs_invest"); ?>
+
+                <?php //Responsável por abrir a edição dos links sociais. ?>
+                <?php elseif (Geekx\Session::get("editLinksSociais")): ?>
+
+                    <?php $this->loadView("software/socialmedia/index/parts/index/edit_links_sociais"); ?>
+
+                <?php //Responsável por abrir a lista de usuários. ?>
+                <?php elseif (Geekx\Session::get("listUsersAdv")): ?>
+
+                    <?php $result['userData'] = $userData; ?>
+                    <?php $this->loadView("software/socialmedia/index/parts/index/list_users_adv", $result); ?>
+
+                <?php //Abre o bloco de conteúdo padrão caso nenhum dos itens acima seja verdadeiro. ?>
+                <?php else: ?>
+
+                    <?php $this->loadView("software/socialmedia/index/parts/index/conteudo"); ?>
+
+                <?php endif; ?>
+                
+            </section>
+        </div>
+        
+        <?php //Control Sidebar. ?>
+        <?php $this->loadView("software/socialmedia/index/parts/general/control_sidebar"); ?>
+        
+        <div class="control-sidebar-bg"></div>
+    </div>
+    
+    <?php //Início do bloco que carrega o js. ?>
+    <?php $this->loadView("software/socialmedia/index/parts/index/load_js"); ?>
+    <?php //Modais de aviso que tem que estar presente em todos os arquivos. ?>
+    <?php $this->loadView("software/socialmedia/index/parts/general/config_modais"); ?>
+    <?php $this->loadView("software/socialmedia/index/parts/general/update_modais"); ?>
+    <?php //Verifica itens gerais na seesão. ?>
+    <?php if (Geekx\Session::get("erro_update")): ?>
+        <?php Geekx\Session::delete("erro_update"); ?>
+    <?php endif; ?>
+    <?php if (Geekx\Session::get("cadastro_sucesso")): ?>
+        <?php Geekx\Session::delete("cadastro_sucesso"); ?>
+    <?php endif; ?>
+    
+</body>
+</html>

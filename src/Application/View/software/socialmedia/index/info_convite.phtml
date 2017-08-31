@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>   
+    <?php
+    /*
+    |-----------------------------------------------
+    |Carrega o head!
+    |-----------------------------------------------
+    */
+    ?>
+    <?php $this->loadView("index/parts/general/head"); ?>
+    </head>
+    <body class="hold-transition skin-red-light sidebar-mini fixed">
+
+        <div class="wrapper">
+            <?php
+            //-----------------------------------------------
+            //Início do bloco que carrega o header!
+            //-----------------------------------------------
+            ?>
+            <?php
+            $this->loadView("index/parts/general/header");
+            ?>
+            <?php
+            //-----------------------------------------------
+            //Início do do bloco que carrega o sidebar!
+            //-----------------------------------------------
+            ?>
+            <?php
+            $this->loadView("index/parts/general/sidebar_left2");
+            ?>
+            <div class="content-wrapper">
+
+                <?php
+                //-----------------------------------------------
+                //Início breadcumb
+                //-----------------------------------------------
+                ?>
+                <section class="content-header">
+                    <h1>
+                        Info Convites
+                        <?php if (Geekx\Session::get("convite_sucesso")): ?>
+                            <small>Sucesso</small>
+                        <?php endif; ?>
+
+                        <?php if (Geekx\Session::get("erro_convite")): ?>
+                            <small>Falha</small>
+                        <?php endif; ?>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="<?= SITE_URL; ?>/index/"><i class="fa fa-dashboard"></i>Home</a></li>
+                        <li class="active"><a href="<?= SITE_URL; ?>/sol/">Solicitações</a></li>
+                    </ol>
+                </section>          
+
+                <?php if (Geekx\Session::get("erro_convite")): // Abrea página para envio de novos convites?>
+
+                    <?php $this->loadView("index/ocorrencias_convite"); ?>
+
+                <?php elseif (Geekx\Session::get("convite_sucesso")): ?>
+
+                    <?php $this->loadView("index/ocorrencias_convite"); ?>
+
+                <?php elseif (Geekx\Session::get("erro_convidado")): ?>
+
+                    <?php $this->loadView("index/ocorrencias_convite"); ?>
+
+                <?php else: ?>                    
+
+                <?php endif; ?>
+            </div>            
+            <?php
+            //-----------------------------------------------
+            // Control Sidebar
+            //-----------------------------------------------
+            ?>
+            <?php $this->loadView("index/parts/general/control_sidebar"); ?>                    
+
+            <div class="control-sidebar-bg"></div>
+        </div>
+        <?php
+        //-----------------------------------------------
+        // Início do bloco que carrega o Js
+        //-----------------------------------------------
+        ?>
+        <?php $this->loadView("index/parts/general/config_modais"); ?>
+        <?php $this->loadView("index/parts/index/load_js"); ?>
+        <script src="<?= STATIC_URL_INTO ?>/dist/js/funcoes_user.js"></script>
+        <script src="<?= STATIC_URL_INTO ?>/dist/js/search_ind_page.js"></script>      
+
+        <?php if (Geekx\Session::get("erro_convite")): ?>
+
+            <?php Geekx\Session::delete("erro_convite"); ?>
+
+        <?php endif; ?>
+
+        <?php if (Geekx\Session::get("erro_convidado")): ?>
+
+            <?php Geekx\Session::delete("erro_convidado"); ?>
+
+        <?php endif; ?>
+
+        <?php if (Geekx\Session::get("convite_sucesso")): ?>
+
+            <?php Geekx\Session::delete("convite_sucesso"); ?>
+
+        <?php endif; ?>    
+
+    </body>
+</html>

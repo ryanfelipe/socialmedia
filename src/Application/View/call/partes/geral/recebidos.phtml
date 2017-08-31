@@ -1,0 +1,38 @@
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-widget">
+                <div class="box-header">
+                    <h3 class="box-title">Solicitações de colaboração recebidas</h3>
+                </div>
+                <div class="box-body table-responsive no-padding">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Código</th>    
+                                <th>Anfitrião</th>                                                                                                                  
+                                <th>Status</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+
+                            <?php foreach ($convites as $dado) : ?>
+                                <tr>
+                                    <td><?php echo $dado["convite"]; ?></td>                                            
+                                    <td><?php echo $dado["email_anfitriao"]; ?></td>                                            
+                                    <td>
+                                        <?php if ($dado["status"] == 0): ?>
+                                            <span class="label label-warning">Pendente</span>
+                                        <?php endif; ?>
+                                    </td>
+                                    <td><a href="<?= SITE_URL; ?>/convite/aceitarConvite/<?= $dado["convite"]; ?>/<?= $dado["id"]; ?>/<?= $dado["email_anfitriao"]; ?>">Aceitar convite</a></td>
+                                    <td><a href="<?= SITE_URL; ?>/convite/removeConviteRec/<?= $dado["convite"]; ?>">Recusar convite</a></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

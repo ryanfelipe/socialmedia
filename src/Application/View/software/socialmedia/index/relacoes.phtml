@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>   
+    <?php $this->loadView("software/socialmedia/index/parts/general/head"); ?> 
+    <link rel="stylesheet" href="<?= STATIC_URL_INTO ?>/dist/css/relashionship.css">
+</head>  
+<body class="hold-transition skin-red-light sidebar-mini fixed">
+    <div class="wrapper">
+        <?php $this->loadView("software/socialmedia/index/parts/general/header"); ?>          
+        <?php $this->loadView("software/socialmedia/index/parts/general/sidebar_left2"); ?>          
+        <div class="content-wrapper" id="wrap">
+            <?php $this->loadView("software/socialmedia/index/parts/relationships/breadcumb"); ?>
+            <section class="content" id="conteudo">
+                <div class="row">
+                    <div class="col-md-7">
+                        <div class="box box-default">
+                            <div class="box-header with-border">
+                                <h3 class="box-title">Amigos</h3>                  
+                            </div>                                
+                            <div class="box-body no-padding">
+                                <ul class="users-list clearfix" id="friends">
+                                    <?php //Aqui é carregada a lista de amigos! O arquivo usado para carregar esses dados é o load_friends3.js. ?>
+                                </ul>                                    
+                            </div>                                
+                            <div class="box-footer text-center">
+                                <a href="javascript:void(0)" 
+                                   class="uppercase" 
+                                   id="carregar-mais">Carregar mais...</a>
+                            </div>                                
+                        </div>       
+                    </div>
+                </div>
+                <?php //Fim da listagem de amigos. ?>
+            </section>
+        </div>            
+        <?php $this->loadView("software/socialmedia/index/parts/general/control_sidebar"); ?>                     
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <?php $this->loadView("software/socialmedia/index/parts/general/config_modais"); ?>      
+    <?php $this->loadView("software/socialmedia/index/parts/index/load_js"); ?>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/load_friends3.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/relationship.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/notifications.js"></script>     
+</body>
+</html>

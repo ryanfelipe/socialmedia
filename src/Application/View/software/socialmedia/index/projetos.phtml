@@ -1,0 +1,571 @@
+<?php
+$this->loadView("index/parts/general/head");
+?>
+
+<body class="hold-transition skin-black-light sidebar-mini fixed">
+
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="<?= SITE_URL; ?>/index" class="logo">
+                <span class="logo-mini"><b>S</b></span>                
+                <span class="logo-lg"><b>Social</b></span>
+            </a>
+            <?php //Header Navbar ?>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <?php //Sidebar toggle button?>
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <?php //Navbar Right Menu  ?>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <?php //Messages: style can be found in dropdown.less ?>
+                        <li class="dropdown messages-menu">
+                            <?php //Menu toggle button ?>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-envelope-o"></i>
+                                <span class="label label-success">4</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 4 messages</li>
+                                <li>
+                                    <?php //inner menu: contains the messages ?>
+                                    <ul class="menu">
+                                        <li><?php //start message                     ?>
+                                            <a href="#">
+                                                <div class="pull-left">
+                                                    <?php //User Image ?>
+                                                    <img src="<?= STATIC_URL_INTO ?>/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                </div>
+                                                <?php //Message title and timestamp ?>
+                                                <h4>
+                                                    Support Team
+                                                    <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                                </h4>
+                                                <?php //The message ?>
+                                                <p>Why not buy a new awesome theme?</p>
+                                            </a>
+                                        </li>
+                                        <?php //end message ?>
+                                    </ul>
+                                    <?php //.menu  ?>
+                                </li>
+                                <li class="footer"><a href="#">See All Messages</a></li>
+                            </ul>
+                        </li>
+                        <?php //.messages-menu  ?>
+
+                        <?php //Notifications Menu  ?>
+                        <li class="dropdown notifications-menu">
+                            <?php //Menu toggle button  ?>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-bell-o"></i>
+                                <span class="label label-warning">10</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 10 notifications</li>
+                                <li>
+                                    <?php //Inner Menu: contains the notifications  ?>
+                                    <ul class="menu">
+                                        <li><?php //start notification                   ?>
+                                            <a href="#">
+                                                <i class="fa fa-users text-aqua"></i> 5 new members joined today
+                                            </a>
+                                        </li>
+                                        <?php //end notification ?>
+                                    </ul>
+                                </li>
+                                <li class="footer"><a href="#">View all</a></li>
+                            </ul>
+                        </li>
+                        <?php //Tasks Menu  ?>
+                        <li class="dropdown tasks-menu">
+                            <?php //Menu Toggle Button  ?>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-flag-o"></i>
+                                <span class="label label-danger">9</span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="header">You have 9 tasks</li>
+                                <li>
+                                    <?php //Inner menu: contains the tasks ?>
+                                    <ul class="menu">
+                                        <li><?php //Task item                   ?>
+                                            <a href="#">
+                                                <?php //Task title and progress text ?>
+                                                <h3>
+                                                    Design some buttons
+                                                    <small class="pull-right">20%</small>
+                                                </h3>
+                                                <?php //The progress bar  ?>
+                                                <div class="progress xs">
+                                                    <?php //Change the css width attribute to simulate progress  ?>
+                                                    <div class="progress-bar progress-bar-aqua" style="width: 20%" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
+                                                        <span class="sr-only">20% Complete</span>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <?php //end task item  ?>
+                                    </ul>
+                                </li>
+                                <li class="footer">
+                                    <a href="#">View all tasks</a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <?php //Menu do usuário ?>
+                        <li class="dropdown user user-menu">
+                            <?php //Menu Toggle Button ?>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <?php //The user image in the navbar ?>
+                                <img src="<?= STATIC_URL_INTO ?>/dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                                <?php //hidden-xs hides the username on small devices so only the image appears. ?>
+
+
+                                <span class="hidden-xs margin-r-5">
+                                    <?php
+                                    echo "Hugo Porto"; //$pesquisador['nome'] . ' ' . $pesquisador['sobrenome']
+                                    ?>
+                                </span>
+                                <i class="fa fa-caret-down"></i>
+                            </a>   
+                            <ul class="dropdown-menu">                                
+                                <li class="user-footer" style="background-color: #fff">
+                                    <i class="fa fa-user">
+                                        <a href="<?= SITE_URL; ?>/index/">Perfil</a>
+                                    </i>
+                                    <br/>
+                                    <br/>
+                                    <i class="fa fa fa-wrench">
+                                        <a href="<?= SITE_URL; ?>/edituse/">Editar perfil</a>
+                                    </i>
+                                    <br/>
+                                    <br/>
+                                    <i class="fa fa-users">
+                                        <a href="#">Linha do tempo</a>
+                                    </i>
+                                    <br/>
+                                    <br/>
+                                    <i class="fa fa-sign-out">
+                                        <a href="<?= SITE_URL; ?>/index/logout" class="">Sair</a>
+                                    </i>
+                                </li>                                
+                            </ul>
+                        </li>
+                        <?php //User Account Menu ?>
+                        <?php //Menu de configurações ?>
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-commenting"></i></a>
+                        </li>
+                        <?php //Menu de configurações ?>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <?php $this->loadView("index/parts/sidebar_left"); ?>
+
+        <div class="content-wrapper">   
+
+            <?php // breadcrumb ?>
+            <section class="content-header">
+                <h1>
+                    Projetos de pesquisa -
+                    <small>Aqui você faz a manutenção de seus projetos  </small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="<?= SITE_URL; ?>/index/"><i class="fa fa-dashboard"></i> Home</a></li>
+                    <li class="active">Projetos de pesquisa</li>
+
+                    <?php if (!Geekx\Session::get("parte1")): ?>
+
+                        <li class="active">Cadastro de projeto - Parte 1</li>
+
+                    <?php elseif ((Geekx\Session::get("parte1")) && (!Geekx\Session::get("parte2"))): ?>
+
+                        <li class="active">Cadastro de projeto - Parte 2</li>
+
+                    <?php elseif ((Geekx\Session::get("parte1")) && (Geekx\Session::get("parte2")) && (!Geekx\Session::get("parte3"))): ?>
+
+                        <li class="active">Cadastro de projeto - Parte 3</li>
+
+                    <?php else: ?>
+
+                        <li class="active">Cadastro de projeto - Parte 4</li>
+
+                    <?php endif; ?>
+                </ol>
+            </section>
+            <?php // breadcrumb ?>
+
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box box-widget">                   
+
+                            <?php // Verifica se existem projetos na sessão ?>
+                            <?php if (Geekx\Session::get("existem_projetos")): ?>   
+
+                                <?php
+                                //// Verifica se a quantidade de projetos na sessão é menor que quatro
+                                // Caso seja disponibiliza o botão para que sejam feitas novas inserções de projetos
+                                ?>
+                                <?php if (Geekx\Session::get("num_projetos") < 5): ?>   
+                                    <div class="box-header">
+                                        <h3 class="box-title">
+                                            <a href="<?= SITE_URL; ?>/pesquisa/main/novo_projeto">
+                                                <i class="fa fa-plus-circle"></i>
+                                                <span>Adicionar novo projeto</span>
+                                            </a>
+                                        </h3>
+                                    </div>
+                                <?php endif; ?>
+
+                                <div class="box-body table-responsive no-padding">
+                                    <table class="table table-hover">
+                                        <tbody>
+                                            <tr>                                
+                                                <th>Nome do Projeto</th>
+                                                <th>Data da Criação</th>                                       
+                                                <th>Ultima Edição</th>
+
+                                                <th style="color: #f00">
+                                                    <i class="fa fa-search margin-r-5"></i>
+                                                    <span>Ver</span>
+                                                </th>                                      
+                                                <th style="color: #f00">
+                                                    <i class="fa fa-gear margin-r-5"></i>
+                                                    <span>Editar</span>
+                                                </th>                                      
+                                                <th style="color: #f00">
+                                                    <i class="fa fa-remove margin-r-5"></i>
+                                                    <span>Remover</span>
+                                                </th>                             
+                                            </tr>
+
+                                            <?php foreach ($projetos as $dado) : ?>
+
+                                                <tr>
+                                                    <td><?php echo $dado["titulo"]; ?></td>
+                                                    <td><?php echo $dado["data_criacao"]; ?></td>
+                                                    <td><?php echo $dado["ultima_edicao"]; ?></td>
+                                                    <td>    
+                                                        <a href="#">
+                                                            <i class="fa fa-search margin-r-5"></i> 
+                                                            <span>Ver</span>
+                                                        </a>
+                                                    </td>                                                             
+                                                    <td>
+                                                        <a href="#">
+                                                            <i class="fa fa-gear margin-r-5"></i> 
+                                                            <span>Editar</span>
+                                                        </a>
+                                                    </td>                                                             
+                                                    <td>
+                                                        <a href="#">
+                                                            <i class="fa fa-remove margin-r-5"></i> 
+                                                            <span>Remover</span>
+                                                        </a>
+                                                    </td>                                                             
+                                                </tr>
+                                            <?php endforeach; ?>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+
+
+                                <?php Geekx\Session::delete("existem_projetos"); ?>
+
+                            <?php else: ?>
+
+                                <?php // Formulario de cadastro de projetos - Parte 1?>   
+
+                                <?php if (!Geekx\Session::get("parte1")): ?>
+
+                                    <div class="box-header">
+                                        <h3 class="box-title">                    
+                                            <i class="fa fa-table"></i>
+                                            <span>Cadastro de projeto - Parte 1</span>
+                                            <br/>
+                                            <br/>
+                                            <span>Escolha sua a sua área de atuação</span>
+
+
+                                        </h3>
+                                    </div>                
+                                    <div class="box-body">
+                                        <div class="row">  
+                                            <?php // Nesse formulário vão acontecer todas as operações de cadatro! ?>
+                                            <form role="form" method="post" action="<?= SITE_URL; ?>/pesquisa/put_in_session/parte1">
+                                                <div class="col-xs-3">
+                                                    <div class="form-group">
+                                                        <label>Ramo*</label>
+                                                        <select name="ramo" class="form-control" required="true">                                     
+                                                            <option value="">Escolher Ramo</option>
+                                                            <?php foreach ($ramos as $dado) : ?>
+                                                                <option value="<?php echo $dado["ramo"]; ?>"><?php echo $dado["ramo"]; ?></option>
+                                                            <?php endforeach; ?>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <div class="form-group">
+                                                        <label>Especificação</label>
+                                                        <select name="especificacao" class="form-control">
+                                                            <option value="" selected="selected">Aguardando Ramo...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <div class="form-group">
+                                                        <label>Área</label>
+                                                        <select name="area" class="form-control">
+                                                            <option value="" selected="selected">Aguardando Especificação...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <div class="form-group">
+                                                        <label>Titulação</label>
+                                                        <select name="titulacao" class="form-control">
+                                                            <option value="" selected="selected">Aguardando Área...</option>                                           
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-3">
+                                                    <div class="form-group">
+                                                        <label>Especificação Extra</label>
+                                                        <select name="expecificacao_extra" class="form-control">
+                                                            <option value="" selected="selected">Aguardando Titulacão...</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-12">
+                                                    <div class="form-group">
+                                                        <button class="btn btn-primary" type="submit" name="submit">Próximo</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div> 
+
+                                <?php elseif ((Geekx\Session::get("parte1")) && (!Geekx\Session::get("parte2"))): ?>
+                                    <?php // Fomulário - Parte 2! ?>                       
+                                    <?php $this->loadView("index/parts/priority/form_pes_part2"); ?>
+
+
+                                    <?php
+                                elseif ((Geekx\Session::get("parte1")) && (Geekx\Session::get("parte2")) && (!Geekx\Session::get("parte3"))):
+                                    ?>
+
+                                    <?php // Fomulário - Parte 3! ?>
+                                    <?php $this->loadView("index/parts/priority/form_pes_part3"); ?>
+
+                                    <?php
+                                elseif ((Geekx\Session::get("parte1")) && (Geekx\Session::get("parte2")) && (Geekx\Session::get("parte3")) && (!Geekx\Session::get("parte4"))):
+                                    ?>
+
+                                    <?php $this->loadView("index/parts/priority/form_pes_part4"); ?>
+
+                                    <?php
+                                elseif ((Geekx\Session::get("cadastro_sucesso"))):
+                                    ?>
+                                    <?php $this->loadView("index/parts/priority/cadastro_sucesso"); ?>
+
+                                    <?php Geekx\Session::delete("parte1"); ?>
+                                    <?php Geekx\Session::delete("parte2"); ?>
+                                    <?php Geekx\Session::delete("parte3"); ?>
+                                    <?php Geekx\Session::delete("parte4"); ?>
+
+                                <?php endif; ?>
+
+
+                            <?php endif; ?>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <?php
+        $this->loadView("index/parts/rodape");
+        ?>
+
+        <?php //Control Sidebar   ?>
+        <aside class="control-sidebar control-sidebar-light" style="background-color: #fff">    
+            <?php //Tabs do menu lateral   ?>
+            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+
+                <li class="active">
+                    <a href="#control-sidebar-friends-tab" data-toggle="tab">
+                        <i class="fa fa-users"></i>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#control-sidebar-settings-tab" data-toggle="tab">
+                        <i class="fa fa-gears"></i>
+                    </a>
+                </li>
+            </ul>
+            <?php //Tabs do chat   ?>
+            <div class="tab-content">
+                <?php //Home tab content   ?>
+                <div class="tab-pane active" id="control-sidebar-friends-tab">      
+                    <form method="post">               
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Fixar
+                                <input id="navbarchat"type="checkbox" class="pull-right" unchecked>
+                            </label>
+                            <p>
+                                Torna esta barra fixa!
+                            </p>
+                        </div>
+                    </form>
+                    <?php //Usuários  ?>
+                    <span class="user_online" id="<?php echo $pesquisador['id']; ?>"></span>
+                    <aside id="users_online">
+                        <ul>
+                            <li id="1">
+
+                                <div class="imgSmall"><img src="<?= STATIC_URL_INTO ?>/dist/img/user1-128x128.jpg" border="0" /></div>
+                                <a href="#" id="2:1" class="comecar">Lucas Silva</a>
+                                <span id="1" class="status on"></span>
+                            </li>
+                            <li id="1">
+
+                                <div class="imgSmall"><img src="<?= STATIC_URL_INTO ?>/dist/img/user2-160x160.jpg" border="0" /></div>
+                                <a href="#" id="2:1" class="comecar">Lucas Silva</a>
+                                <span id="1" class="status on"></span>
+                            </li>
+                            <li id="1">
+
+                                <div class="imgSmall"><img src="<?= STATIC_URL_INTO ?>/dist/img/user3-128x128.jpg" border="0" /></div>
+                                <a href="#" id="2:1" class="comecar">Lucas Silva</a>
+                                <span id="1" class="status on"></span>
+                            </li>
+                        </ul>
+                    </aside>
+                </div>
+
+                <?php //Configurações tab content   ?>
+                <div class="tab-pane" id="control-sidebar-stats-tab">Stats Tab Content</div>
+                <div class="tab-pane" id="control-sidebar-settings-tab">
+                    <form method="post">
+                        <h3 class="control-sidebar-heading">Configurações do Chat</h3>
+                        <div class="form-group">
+                            <label class="control-sidebar-subheading">
+                                Report panel usage
+                                <input type="checkbox" class="pull-right" checked>
+                            </label>
+                            <p>
+                                Some information about this general settings option
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </aside>
+        <div class="control-sidebar-bg" style="background-color: #fff"></div>
+
+        <?php // Chat  ?>
+        <aside id="chats">
+
+
+
+        </aside>
+        <?php // Chat  ?>
+
+
+
+
+
+
+
+
+
+
+
+
+        <!--
+        <div class="window" id="janela_x">
+            <div class="header_window">
+                <a href="#" class="close">X</a>  
+                <i class="fa fa-times" id="chat-fa-times"></i>
+                <span class="name">Fulano de tal</span>    
+                <span id="5" class="status on"></span></div>
+            <div class="body">
+                <div class="mensagens">
+        
+                </div>
+                <div class="send_message" id="3:5">
+                    <input type="text" name="mensagem" class="msg" id="3:5" placeholder="Mensagem" />
+                </div>
+            </div>
+        </div>
+        -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="<?= STATIC_URL_INTO ?>/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/app.min.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/funcoes.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/ajax.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/chat.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+
+    <?php if (Geekx\Session::get("busca_avancada")): ?>
+
+        <?php Geekx\Session::delete("busca_avancada"); ?>
+
+    <?php endif; ?>
+
+    <?php if (Geekx\Session::get("convite")): ?>
+
+        <?php Geekx\Session::delete("convite"); ?>
+
+    <?php endif; ?>
+
+    <?php
+//Verifica se o navbarchat está na sessão
+//Casos esteja faz barra barra esquerda do chat ficar fixa
+    ?>
+    <?php if (Geekx\Session::get("navbarchat")): ?>
+
+        <script type="text/javascript">
+
+            $(document).ready((function () {
+                //Fixa a barra na eauqerda
+                $("body").prop("class", "hold-transition skin-green-light sidebar-mini control-sidebar-open fixed");
+                // Marca o checkbox da barra do chat como true
+                $("#navbarchat").attr("checked", true);
+            }));
+
+        </script>
+
+        <?php //Remove da sessão o verificador ?>
+        <?php Geekx\Session::delete("navbarchat"); ?>
+
+    <?php endif; ?>
+
+</body>
+</html>

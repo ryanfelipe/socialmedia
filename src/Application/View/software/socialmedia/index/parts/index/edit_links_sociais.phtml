@@ -1,0 +1,206 @@
+<div class="row">
+    <?php
+    /*
+    |----------------------------------------------------------------
+    |Início do bloco que carrega a mensagem de erro e de sucesso
+    |----------------------------------------------------------------
+    */
+    ?>
+    <?php if (Geekx\Session::get("erro_update")): ?>
+        <div class="col-md-8">
+            <div class="box box-widget widget-user">
+                <div class="alert alert-warning alert-dismissible">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                    <?= Geekx\Session::get("erro_update"); ?>
+                </div>
+            </div>
+        </div>
+    <?php elseif (Geekx\Session::get("cadastro_sucesso")): ?>
+        <div class="col-md-8">
+            <div class="box box-widget widget-user">
+                <div class="alert alert-success alert-dismissible">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                    <?= Geekx\Session::get("cadastro_sucesso"); ?>
+                </div>
+            </div>
+        </div>
+    <?php else: ?>
+    <?php endif; ?>
+    <?php
+    /*
+    |-----------------------------------------------
+    |Fim do bloco que carrega a mensagem de erro
+    |-----------------------------------------------
+    */
+    ?>
+    <div class="col-md-8">
+        <?php
+        /*
+        |-----------------------------------------------
+        |Início do formulário de dados
+        |-----------------------------------------------
+        */
+        ?>
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Alterar Preferências de Investimento</h3>
+            </div>
+            <form role="form" action="<?= SITE_URL; ?>/sociais/addOrEdit" method="post">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-bitbucket"></i>
+                                 <label for="exampleInputEmail1"> - bitbucket:</label>
+                                <input class="form-control" name="bitbucket" id="bitbucket"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-dropbox"></i>
+                                <label for="exampleInputEmail1"> - dropbox:</label>
+                                <input class="form-control" name="dropbox" id="dropbox"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-facebook"></i>
+                                 <label for="exampleInputEmail1"> - facebook:</label>
+                                <input class="form-control" name="facebook" id="facebook"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-flickr"></i>
+                                 <label for="exampleInputEmail1"> - flickr:</label>
+                                <input class="form-control" name="flickr" id="flickr"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-foursquare"></i>
+                                <label for="exampleInputEmail1"> - foursquare:</label>
+                                <input class="form-control" name="foursquare" id="foursquare"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-github"></i>
+                                <label for="exampleInputEmail1"> - github:</label>
+                                <input class="form-control" name="github" id="github"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-google-plus"></i>
+                                <label for="exampleInputEmail1"> - google-plus:</label>
+                                <input class="form-control" name="googleplus" id="googleplus"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-instagram"></i>
+                                <label for="exampleInputEmail1"> - instagram:</label>
+                                <input class="form-control" name="instagram" id="instagram"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-linkedin"></i>
+                                <label for="exampleInputEmail1"> - linkedin:</label>
+                                <input class="form-control" name="linkedin" id="linkedin"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-tumblr"></i>
+                                <label for="exampleInputEmail1"> - tumblr:</label>
+                                <input class="form-control" name="tumblr" id="tumblr"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-twitter"></i>
+                                <label for="exampleInputEmail1"> - twitter:</label>
+                                <input class="form-control" name="twitter" id="twitter"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <i class="fa fa-vk"></i>
+                                <label for="exampleInputEmail1"> - vk:</label>
+                                <input class="form-control" name="vk" id="vk"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" name="submit" class="btn btn-primary">Modificar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <?php
+    /*
+    |----------------------------------------
+    |Submenu de edição
+    |----------------------------------------
+    */
+    ?>
+    <div class="col-md-3">
+            <?php
+            /*
+            |----------------------------------------
+            |Preferências de Investimento
+            |----------------------------------------
+            */
+            ?>
+            <div class="info-box bg-green">
+                <span class="info-box-icon"><i class="fa fa-money"></i></span>
+                <div class="info-box-content">
+                    <a href="<?= SITE_URL; ?>/invest/edit_prefs"
+                    role="button" style="color: white"><h4>Preferências de Investimento</h4>
+                    </a>
+                </div>
+            </div>
+            <?php
+            /*
+            |----------------------------------------
+            |Links Sociais
+            |----------------------------------------
+            */
+            ?>
+           <div class="info-box bg-blue">
+                <span class="info-box-icon"><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
+                    <a href="<?= SITE_URL; ?>/sociais/edit_links_sociais"
+                    role="button"
+                    style="color: white"><h4>Links Sociais</h4></a>
+                </div>
+            </div>
+    </div>
+</div>

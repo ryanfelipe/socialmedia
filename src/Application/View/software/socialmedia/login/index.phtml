@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <?php $this->loadView("software/socialmedia/login/partes/geral/head"); ?>
+    <body>
+        <div class="container-fluid" id="container_apresentacao">
+            <div class="container" id="container_apresentacao_in">
+                <nav class="navbar navbar-default navbar-fixed-top" id="navbar-geekx">  
+                    <?php $this->loadView("software/socialmedia/login/partes/geral/nav"); ?> 
+                </nav>
+                <?php
+                /*
+                |--------------------------------------------
+                |Verifica os erros de processamento
+                |--------------------------------------------
+                */
+                ?>
+                <?php if (Geekx\Session::get("erro")): ?>
+                    <?php $this->loadView("software/socialmedia/login/partes/geral/display_messages"); ?>                    
+                <?php 
+                /*
+                |------------------------------------------------------------
+                |Verifica se ocorrem erros na hora do cadastro no sistema
+                |------------------------------------------------------------
+                */
+                ?>
+                <?php elseif (Geekx\Session::get("cadastro-msg")): ?>
+                    <?php $this->loadView("software/socialmedia/login/partes/geral/display_messages"); ?>                    
+                <?php 
+                /*
+                |------------------------------------------------------------
+                |Alerta o usuário que a recuperação de senha foi efetivada
+                |------------------------------------------------------------
+                */
+                ?>
+                <?php elseif (Geekx\Session::get("send_pass_success")): ?>
+                    <?php $this->loadView("software/socialmedia/login/partes/geral/send_pass_success"); ?>                    
+                <?php
+                /*
+                |-------------------------------------------------------------
+                |Caso não ocorram erros carrega a página de conteúdo padrão
+                |-------------------------------------------------------------
+                */
+                ?>
+                <?php else: ?>
+                    <?php $this->loadView("software/socialmedia/login/partes/geral/conteudo"); ?>
+                <?php endif; ?>
+            </div>
+        </div>
+        <?php $this->loadView("software/socialmedia/login/partes/geral/rodape"); ?>
+    </body>
+</html>

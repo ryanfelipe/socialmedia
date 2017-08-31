@@ -1,0 +1,133 @@
+<div class="row">
+    <?php
+    /*
+    |-----------------------------------------------
+    |Início do bloco que carrega a mensagem de erro e de sucesso
+    |-----------------------------------------------
+    */
+    ?>
+    <?php if (Geekx\Session::get("erro_update")): ?>
+        <div class="col-md-8">
+            <div class="box box-widget widget-user">
+                <div class="alert alert-warning alert-dismissible">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                    <?= Geekx\Session::get("erro_update"); ?>
+                </div>
+            </div>
+        </div>
+    <?php elseif (Geekx\Session::get("cadastro_sucesso")): ?>
+        <div class="col-md-8">
+            <div class="box box-widget widget-user">
+                <div class="alert alert-success alert-dismissible">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                    <?= Geekx\Session::get("cadastro_sucesso"); ?>
+                </div>
+            </div>
+        </div>
+    <?php else: ?>
+    <?php endif; ?>
+    <?php
+    /*
+    |-----------------------------------------------
+    |Fim do bloco que carrega a mensagem de erro
+    |-----------------------------------------------
+    */
+    ?>
+    <div class="col-md-8">
+        <?php
+        /*
+        |-----------------------------------------------
+        |Início do formulário de dados
+        |-----------------------------------------------
+        */
+        ?>
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Alterar Preferências de Investimento</h3>
+            </div>
+            <form role="form" action="<?= SITE_URL; ?>/invest/atualizar" method="post">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select name="pref1" class="form-control" style="float: left; margin-bottom: -1px">
+                                    <option value="0" selected="1">Preferência de investimento 1</option>
+                                    <option value="1">Renda Fixa</option>
+                                    <option value="2">Fundos de Investimento</option>
+                                    <option value="3">Rrenda Variável</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select name="pref2" class="form-control" style="float: left; margin-bottom: -1px">
+                                    <option value="0" selected="1">Preferência de investimento 2</option>
+                                    <option value="1">Renda Fixa</option>
+                                    <option value="2">Fundos de Investimento</option>
+                                    <option value="3">Rrenda Variável</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <select name="pref3" class="form-control" style="float: left; margin-bottom: -1px">
+                                    <option value="0" selected="1">Preferência de investimento 3</option>
+                                    <option value="1">Renda Fixa</option>
+                                    <option value="2">Fundos de Investimento</option>
+                                    <option value="3">Rrenda Variável</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" name="submit" class="btn btn-primary">Alterar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <?php
+    /*
+    |----------------------------------------
+    |Submenu de edição
+    |----------------------------------------
+    */
+    ?>
+    <div class="col-md-3">
+            <?php
+            /*
+            |----------------------------------------
+            |Preferências de Investimento
+            |----------------------------------------
+            */
+            ?>
+            <div class="info-box bg-green">
+                <span class="info-box-icon"><i class="fa fa-money"></i></span>
+                <div class="info-box-content">
+                    <a href="<?= SITE_URL; ?>/invest/edit_prefs"
+                    role="button" style="color: white"><h4>Preferências de Investimento</h4>
+                    </a>
+                </div>
+            </div>
+            <?php
+            /*
+            |----------------------------------------
+            |Links Sociais
+            |----------------------------------------
+            */
+            ?>
+            <div class="info-box bg-blue">
+                <span class="info-box-icon"><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
+                    <a href="<?= SITE_URL; ?>/sociais/edit_links_sociais"
+                    role="button"
+                    style="color: white"><h4>Links Sociais</h4></a>
+                </div>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,136 @@
+<aside class="control-sidebar control-sidebar-dark">  
+    <?php
+    /*
+      |-----------------------------------------------
+      |Tabs do control
+      |-----------------------------------------------
+     */
+    ?>
+    <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
+        <li class="active">
+            <a href="#control-sidebar-friends-tab" data-toggle="tab">
+                <i class="fa fa-users"></i>
+            </a>
+        </li>
+        <?php
+        /*
+          |--------------------------------------------
+          |Link para a tab de configurações do chat
+          |--------------------------------------------
+         */
+        ?>       
+        <li>
+            <a href="#control-sidebar-settings-tab" data-toggle="tab">
+                <i class="fa fa-gears"></i>
+            </a>
+        </li>
+
+    </ul>
+    <?php
+    /*
+      |-----------------------------------------------
+      |Tabs
+      |-----------------------------------------------
+     */
+    ?>
+    <div class="tab-content">
+        <?php
+        /*
+          |-----------------------------------------------
+          |Home tab content
+          |-----------------------------------------------
+         */
+        ?>        
+        <div class="tab-pane active" id="control-sidebar-friends-tab">
+            <?php
+            /*
+              |-----------------------------------------------
+              |ID do usuário que está (de) do chat
+              |-----------------------------------------------
+             */
+            ?> 
+            <span class="user_online" id="<?= $usuario['id']; ?>"></span>
+            <?php
+            /*
+              |========================================================================================
+              |========================================================================================
+              |====================Aqui são exibidos os usuários logados no chat=======================
+              |========================================================================================
+              |========================================================================================
+             */
+            ?>
+            <aside id="users_online">
+                <ul>
+                    <?php foreach ($amigos as $dado): ?>
+                        <?php
+                        /*
+                          |------------------------------------------------------
+                          |Caso o usuário não esteja logado, entra nesse código
+                          |------------------------------------------------------
+                         */
+                        ?> 
+                        <?php if ($dado["logado"] == 0): ?>
+
+                            <li id="<?php echo $dado["id"]; ?>">
+                                <div class="imgSmall"><img src="<?= STATIC_URL_INTO . $dado["fotoperfil"]; ?>" border="0" /></div>
+                                
+                                <a id="<?php echo $usuario['id'] . ":" . $dado["id"]; ?>" class="comecar" style="cursor: pointer">
+                                    <?php echo $dado["nome"] . " " . $dado["sobrenome"]; ?>
+                                </a>
+                                
+                                <span id="<?php echo $dado["id"]; ?>" class="status off"></span>
+                            </li>
+
+                        <?php else: ?>
+
+                            <li id="<?php echo $dado["id"]; ?>">
+                                <div class="imgSmall"><img src="<?= STATIC_URL_INTO . $dado["fotoperfil"]; ?>" border="0" /></div>
+                                
+                                <a id="<?php echo $usuario['id'] . ":" . $dado["id"]; ?>" class="comecar" style="cursor: pointer">
+                                    <?php echo $dado["nome"] . " " . $dado["sobrenome"]; ?>
+                                </a>
+                                
+                                <span id="<?php echo $dado["id"]; ?>" class="status on"></span>
+                            </li>
+
+                        <?php endif; ?>
+
+                    <?php endforeach; ?>
+                </ul>
+            </aside>
+        </div>
+        <?php
+        /*
+          |----------------------------
+          |Tab de configurações
+          |----------------------------
+         */
+        ?>    
+        <div class="tab-pane" id="control-sidebar-settings-tab">
+            <div class="form-group">                
+                <p>
+                    <a style="color: white; cursor: pointer" id="key-change">
+                        <i class="fa fa-key margin-r-5"></i>
+                        <span>Alterar senha</span> 
+                    </a>
+                </p>
+            </div>
+            <div class="form-group">                
+                <p>
+                    <a style="color: white; cursor: pointer" id="status-change">
+                        <i class="fa fa-adjust margin-r-5"></i>
+                        <span>Alterar status do usuário</span> 
+                    </a>
+                </p>
+            </div>
+            <!--<div class="form-group">             
+                <p>
+                    <a style="color: white; cursor: pointer" id="send-bug">
+                        <i class="fa fa-envelope margin-r-5"></i>
+                        <span>Reportar bug</span> 
+                    </a>
+                </p>
+            </div> -->
+        </div>        
+    </div>
+</aside>

@@ -1,0 +1,124 @@
+<?php
+/*
+|------------------------------------------------------------
+|Modal responsável por alterar a foto de perfil do usuário.
+|------------------------------------------------------------
+*/
+?>
+<div class="modal fade" id="fotoPerfilChange">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <?php
+            /*
+            |---------------------------------
+            |Cabeçalho do modal
+            |---------------------------------
+            */
+            ?>
+            <div class="modal-header" style="background-color:#dd4b39; color: white">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="exampleModalLabel">Alterar foto de perfil</h4>
+            </div>
+            <?php
+            /*
+            |---------------------------------
+            |Corpo do modal
+            |---------------------------------
+            */
+            ?>
+            <div class="modal-body">
+                <form id="sendImagePerfil" role="form" action="<?= SITE_URL; ?>/sendImage/sendImage" method="post" enctype="multipart/form-data">
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="exampleInputFile">Escolha uma foto de perfil.</label>
+                            <input type="file" name="arquivo" id="imagem_perfil">
+                            <hr/>
+                            <div style="border: 1px solid #d7d7d7; padding-left: 5px">
+                                <p class="help-block" style="font-size: 15px">
+                                    O tamanho de sua foto não importa, mas
+                                    ela deve ter altura e largura iguais, por exemplo 
+                                    <strong>460x460</strong> 
+                                    e ter pelo menos <strong>2mb</strong>, 
+                                    sendo <strong>jpg ou png</strong>.
+                                </p>
+                            </div>
+                            <div id="visualizar" 
+                            style="border: 1px solid #d7d7d7; padding-left: 5px; margin-top: 5px;">
+                                <p class="help-block" style="font-size: 15px">                                    
+                                </p>
+                            </div>                         
+                        </div>
+                    </div>                    
+                </form>
+            </div>  
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-primary" id="change-perfil-buttom">Finalizar</button>
+            </div>          
+        </div>
+    </div>
+</div>
+<?php
+/*
+|-------------------------------------------------------
+|Modal responsável por alterar foto de capa do usuário.
+|-------------------------------------------------------
+*/
+?>
+<div class="modal fade" id="fotoCapaChange">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <?php
+            /*
+            |---------------------------------
+            |Cabeçalho do modal
+            |---------------------------------
+            */
+            ?>
+            <div class="modal-header" style="background-color:#dd4b39; color: white">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title" id="exampleModalLabel">Alterar foto de capa</h4>
+            </div>
+            <?php
+            /*
+            |---------------------------------
+            |Corpo do modal
+            |---------------------------------
+            */
+            ?>
+            <div class="modal-body">
+                <form id="sendCapa" role="form" action="<?= SITE_URL; ?>/sendImage/sendCapa" method="post" enctype="multipart/form-data">                
+                    <div class="box-body">
+                        <div class="form-group">
+                            <label for="exampleInputFile">Escolha uma foto de capa.</label>
+                            <input type="file" name="arquivo" id="imagem_capa">
+                            <hr/>
+                            <div style="border: 1px solid #d7d7d7; padding-left: 5px">
+                                <p class="help-block" style="font-size: 15px">
+                                    O tamanho de sua foto de capa deve ser 
+                                    <strong>800x220</strong> 
+                                    e ter pelo menos <strong>2mb</strong>, 
+                                    sendo <strong>jpg ou png</strong>. Recomenda-se que você 
+                                    redimensione a mesma para o tamanho recomendado, para que não 
+                                    aconteçam distorções, uma vez que a mesma é redimensionada 
+                                    para o tamanho padrão assim que você faz o upload dela.
+                                </p>
+                            </div> 
+                            <div id="visualizar-capa" 
+                                style="border: 1px solid #d7d7d7; padding-left: 5px; margin-top: 5px;">
+                                <p class="help-block" style="font-size: 15px">                                    
+                                </p>
+                            </div>                             
+                        </div>
+                    </div>                    
+                </form>
+            </div>    
+            <div class="modal-footer">                
+                <button type="button" class="btn btn-primary" id="change-perfil-capa">Finalizar</button>
+            </div>    
+        </div>
+    </div>
+</div>

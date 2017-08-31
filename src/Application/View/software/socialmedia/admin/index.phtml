@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <?php $this->loadView("admin/parts/head"); ?>
+    <link rel="stylesheet" href="<?= STATIC_URL_INTO ?>/dist/css/search_admin.css">
+</head>
+<body class="hold-transition skin-red-light sidebar-mini fixed">
+    <div class="wrapper">
+        <?php
+        /*
+          |-----------------------------------------------
+          |Início do bloco que carrega o header!
+          |-----------------------------------------------
+         */
+        ?>
+        <header class="main-header">
+            <?php
+            /*
+              |----------------------------------------
+              |Nome da rede.
+              |----------------------------------------
+             */
+            ?>
+            <a href="<?= SITE_URL; ?>/admin" class="logo">
+                <span class="logo-mini"><b>CF</b></span>
+                <span class="logo-lg"><b>Capital|Futuro</b></span>
+            </a>
+            <nav class="navbar navbar-static-top">
+                <?php
+                /*
+                  |---------------------------------
+                  |Sidebar toggle button.
+                  |---------------------------------
+                 */
+                ?>
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <span class="sr-only">Toggle navigation</span>
+                </a>
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        <?php
+                        /*
+                          |-----------------------------------------------
+                          |Carrega o user menu.
+                          |-----------------------------------------------
+                         */
+                        ?>
+                        <li class="dropdown user user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="hidden-xs"><?= $admin["nome"] . ' ' . $admin["sobrenome"]; ?></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-footer" style="background-color: #fff">
+                                    <i class="fa fa-sign-out">
+                                        <a href="<?= SITE_URL; ?>/admin/logout">Sair</a>
+                                    </i>
+                                </li>
+                            </ul>
+                        </li>
+                        <?php
+                        /*
+                          |-----------------------------------------
+                          |Chama o menu do chat e de configurações
+                          |-----------------------------------------
+                         */
+                        ?>
+                        <li>
+                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gear"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <?php
+        /*
+          |-----------------------------------------------
+          |Início do bloco que carrega o sidebar!
+          |-----------------------------------------------
+         */
+        ?>
+        <?php
+        $this->loadView("admin/parts/sidebar_left2");
+        ?>
+        <div class="content-wrapper">
+            <section class="content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Consulta de Clientes</h3>
+                            </div>
+                            <div class="box-body">
+                                <table id="users" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Nome</th>
+                                            <th>E-mail</th>
+                                            <th>Nacimento</th>
+                                            <th>Status</th>
+                                            <td></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <?php foreach ($usuarios as $usuario) : ?>
+                                            <tr>
+                                                <td styel="background: #f00">
+                                                    <img id="fotoperfil" src="<?= STATIC_URL_INTO . $usuario['fotoperfil']; ?>"
+                                                         class="img-circle"
+                                                         >
+                                                </td>
+                                                <td><?= $usuario["nome"] . ' ' . $usuario["sobrenome"]; ?></td>
+                                                <td><?= $usuario["email"]; ?></td>
+                                                <td><?= $usuario["nascimento"]; ?></td>
+                                                <?php if ($usuario["status"] == 1): ?>
+                                                    <td>Ativo</td>
+                                                <?php else: ?>
+                                                    <td>Inativo</td>
+                                                <?php endif; ?>
+                                                <td>
+                                                    <a href=""
+                                                       class="btn btn-primary btn-sm">Detalhar Informações</a>
+                                                </td>
+                                            </tr>
+
+                                        <?php endforeach; ?>
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Image</th>
+                                            <th>Nome</th>
+                                            <th>E-mail</th>
+                                            <td></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <?php $this->loadView("admin/parts/control_sidebar"); ?>
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <?php
+    //-----------------------------------------------
+    // Início do bloco que carrega o Js
+    //-----------------------------------------------
+    ?>
+    <?php $this->loadView("admin/parts/load_js"); ?>
+</body>
+</html>

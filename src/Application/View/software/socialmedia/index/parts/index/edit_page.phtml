@@ -1,0 +1,157 @@
+<div class="row">
+    <?php
+    /*
+    |-------------------------------------------------------------
+    |Início do bloco que carrega a mensagem de erro e de sucesso
+    |-------------------------------------------------------------
+    */
+    ?>
+    <?php if (Geekx\Session::get("erro_update")): ?>
+        <div class="col-md-8">
+            <div class="box box-widget widget-user">
+                <div class="alert alert-warning alert-dismissible">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                    <?= Geekx\Session::get("erro_update"); ?>
+                </div>
+            </div>
+        </div>
+    <?php elseif (Geekx\Session::get("cadastro_sucesso")): ?>
+        <div class="col-md-8">
+            <div class="box box-widget widget-user">
+                <div class="alert alert-success alert-dismissible">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                    <?= Geekx\Session::get("cadastro_sucesso"); ?>
+                </div>
+            </div>
+        </div>
+    <?php else: ?>
+    <?php endif; ?>
+    <?php
+    /*
+    |-----------------------------------------------
+    |Fim do bloco que carrega a mensagem de erro
+    |-----------------------------------------------
+    */
+    ?>
+    <div class="col-md-8">
+        <?php
+        /*
+        |-----------------------------------------------
+        |Início do formulário de dados
+        |-----------------------------------------------
+        */
+        ?>
+        <div class="box box-danger">
+            <div class="box-header with-border">
+                <h3 class="box-title">Alterar Dados Pessoais</h3>
+            </div>
+            <form role="form" action="<?= SITE_URL; ?>/usuario/atualizar" method="post">
+                <div class="box-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Nome:</label>
+                                <input class="form-control" name="nome" id="nome"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Sobrenome:</label>
+                                <input class="form-control" name="sobrenome" id="sobrenome"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">E-mail:</label>
+                                <input class="form-control" name="email" id="email"
+                                       type="email" value="">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group has-error">
+                                <label for="exampleInputEmail1">Data de Nascimento:</label>
+                                <input type="text" name="nascimento" id="nascimento" class="form-control"
+                                       value="" disabled="true">
+                                <span class="help-block">Não pode ser alterado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Minibio</label>
+                                <textarea name="minibio" placeholder="Conte um pouco sobre você..."
+                                          rows="3" class="form-control" id="minibio_edit"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group has-error">
+                                <label for="exampleInputEmail1">Gênero:</label>
+                                <input type="text" id="genero" class="form-control"
+                                       value="" disabled="true">
+                                <span class="help-block">Não pode ser alterado</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Fone:</label>
+                                <input class="form-control" name="fone" id="fone"
+                                       type="text" value="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button type="submit" name="submit" class="btn btn-primary">Alterar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <?php
+    /*
+    |----------------------------------------
+    |Submenu de edição
+    |----------------------------------------
+    */
+    ?>
+    <div class="col-md-3">
+            <?php
+            /*
+            |----------------------------------------
+            |Preferências de Investimento
+            |----------------------------------------
+            */
+            ?>
+            <div class="info-box bg-green">
+                <span class="info-box-icon"><i class="fa fa-money"></i></span>
+                <div class="info-box-content">
+                    <a href="<?= SITE_URL; ?>/invest/edit_prefs"
+                    role="button" style="color: white"><h4>Preferências de Investimento</h4>
+                    </a>
+                </div>
+            </div>
+            <?php
+            /*
+            |----------------------------------------
+            |Links Sociais
+            |----------------------------------------
+            */
+            ?>
+            <div class="info-box bg-blue">
+                <span class="info-box-icon"><i class="fa fa-users"></i></span>
+                <div class="info-box-content">
+                    <a href="<?= SITE_URL; ?>/sociais/edit_links_sociais"
+                    role="button"
+                    style="color: white"><h4>Links Sociais</h4></a>
+                </div>
+            </div>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<div class="col-md-8">
+    <div class="row">
+        <div class="box box-widget">
+            <div class="box-header">
+                <h3 class="box-title">                    
+                    <i class="fa fa-table"></i>
+                    <span>Cadastro de projeto - Parte 2</span>                    
+                </h3>
+            </div> 
+            <div class="box-body">
+                <form role="form" method="post" action="<?= SITE_URL; ?>/pesquisa/put_in_session/parte2">
+                    <div class="form-group">
+                        <label>Título da pesquisa*</label>
+                        <input class="form-control" name="titulo_pesquisa" placeholder="Título da pesquisa" type="text" required="true">
+                    </div>
+                    <div class="form-group">
+                        <label>Raciocínio*</label>
+                        <select name="raciocinio" class="form-control" required="true">
+                            <option value="" selected="1">Escolha o tipo de raciocínio</option>
+                            <option value="Indutivo">Indutivo</option>
+                            <option value="Dedutivo">Dedutivo</option>                        
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tipo de pesquisa*</label>
+                        <select name="tipo_pesquisa" class="form-control" required="true">
+                            <option value="" selected="1">Escolha o tipo de pesquisa</option>                            
+                            <option value="Bibliografica">Bibliográficas</option>
+                            <option value="Descritiva">Descritiva</option>                       
+                            <option value="Experimental">Experimental</option>                       
+                        </select>
+                    </div> 
+                    <div class="form-group">
+                        <label>Forma de coleta de dados*</label>                        
+                        <select name="coleta" class="form-control" required="true">
+                            <option value="" selected="1">Escolha a forma de coleta de dados</option>                            
+                            <option value="Estudo de caso">Estudo de caso</option>
+                            <option value=">População">População</option>                       
+                            <option value="Amostragem">Amostragem</option>                       
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Ponto de partida*</label>
+                        <textarea name="partida" class="form-control" rows="6" required="true"
+                                  placeholder="Faça uma breve descrição do ponto de partida que deu origem ao seu projeto"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit" name="submit">Próximo</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

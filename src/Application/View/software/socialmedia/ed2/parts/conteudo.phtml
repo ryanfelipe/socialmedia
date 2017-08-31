@@ -1,0 +1,43 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Consulta de Clientes</h3>
+            </div>
+            <div class="box-body">
+                <table id="users" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>                 
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Material de estudo</th>                                       
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <?php foreach ($dados as $conteudo) : ?>            
+                        <tr>                    
+                            <td><?= $conteudo["titulo"]; ?></td>
+                            <td><?= $conteudo["descricao"]; ?></td>
+                            <td>
+                                <a href="<?= SITE_URL; ?>/Ed2/verMaterial/<?= $conteudo["id"]; ?>" 
+                                class="btn btn-primary btn-sm">Ver Material</a>
+                            </td>
+
+                        </tr>
+
+                    <?php endforeach; ?>                  
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Título</th>                          
+                            <th>Descrição</th>                               
+                            <th>Material de estudo</th>                          
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

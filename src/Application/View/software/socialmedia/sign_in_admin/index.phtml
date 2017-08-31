@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <?php $this->loadView("sign_in_admin/parts/head"); ?>
+    <body class="hold-transition login-page">
+        <div class="login-box">            
+            <div class="login-logo">
+                <b>Admin </b> Capital|Futuro
+            </div>
+            <?php
+            /*
+            |--------------------------------------------
+            |Topo da caixa de login!
+            |--------------------------------------------
+            */
+            ?>      
+            <div class="login-box-body">
+                <?php
+                /*
+                |--------------------------------------------
+                |Faz as verificações pra ssaber se o usuário
+                |está registrado no sistema.
+                |--------------------------------------------
+                */
+                ?>   
+                <?php if(Geekx\Session::get("erro-login-admin")): ?>
+                    <p class="login-box-msg">
+                        <?=Geekx\Session::get("erro-login-admin") ?>
+                    </p>
+                <?php else: ?>  
+                    <p class="login-box-msg">
+                        Área administrativa
+                    </p>
+                <?php endif; ?> 
+                <?php $this->loadView("sign_in_admin/parts/form_login"); ?>
+            </div>
+        </div><?php //Fim da caixa de login!?>
+        <script src="<?= STATIC_URL_INTO ?>/plugins/jQuery/jquery-2.2.3.min.js"></script>        
+        <script src="<?= STATIC_URL_INTO ?>/bootstrap/js/bootstrap.min.js"></script>        
+        <script src="<?= STATIC_URL_INTO ?>/plugins/iCheck/icheck.min.js"></script>
+        <script>
+            $(function () {
+                $('input').iCheck({
+                    checkboxClass: 'icheckbox_square-blue',
+                    radioClass: 'iradio_square-blue',
+                    increaseArea: '20%' // optional
+                });
+            });
+        </script>
+        <?php
+        /*
+        |-----------------------------------------------
+        |Início do bloco de remossão de itens da sessão!
+        |-----------------------------------------------
+        */
+        ?>        
+        <?php if (Geekx\Session::get("erro-login-admin")): ?>
+            <?php Geekx\Session::delete("erro-login-admin"); ?>
+        <?php endif; ?>
+    </body>
+</html>

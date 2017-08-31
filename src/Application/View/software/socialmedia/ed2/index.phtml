@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>   
+    <?php
+    /*
+      |-----------------------------------------------
+      |Início do bloco que carrega o head!
+      |-----------------------------------------------
+     */
+    ?>
+    <?php $this->loadView("index/parts/general/head"); ?>
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed">
+    <div class="wrapper">
+        <?php
+        /*
+          |-----------------------------------------------
+          |Início do bloco que carrega o header!
+          |-----------------------------------------------
+         */
+        ?>
+        <?php
+        $this->loadView("index/parts/general/header");
+        ?>
+        <?php
+        /*
+          |-----------------------------------------------
+          |Início do do bloco que carrega o sidebar!
+          |-----------------------------------------------
+         */
+        ?>
+        <?php
+        $this->loadView("index/parts/general/sidebar_left2");
+        ?>
+        <?php if (Geekx\Session::get("erro")): ?>
+            <?php echo 'Erro'; ?>            
+        <?php endif; ?>
+        <div class="content-wrapper">                
+            <section class="content" id="conteudo">
+                <?php if (Geekx\Session::get("load")): ?>
+                    <?php $conteudo['dados'] = $dados ?>
+                    <?php $this->loadView("ed2/parts/conteudo", $conteudo); ?>
+                <?php elseif (Geekx\Session::get("loadMaterial")): ?>
+                    <?php $material['dados'] = $dados ?>
+                    <?php $this->loadView("ed2/parts/material", $material); ?>
+                <?php else: ?>
+                    <?php $dados['categorias'] = $categorias ?>
+                    <?php $this->loadView("ed2/parts/categorias", $dados); ?>
+                <?php endif; ?>
+
+            </section>
+        </div>
+        <?php
+        /*
+          |-----------------------------------------------
+          |Control Sidebar
+          |-----------------------------------------------
+         */
+        ?>
+        <?php $this->loadView("index/parts/general/control_sidebar"); ?>
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <?php
+    /*
+      |-----------------------------------------------
+      |Início do bloco que carrega o Js
+      |-----------------------------------------------
+     */
+    ?>
+    <?php $this->loadView("index/parts/index/load_js"); ?>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/notifications.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/load_invest_prefs.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/load_links_sociais.js"></script>
+    <?php
+    /*
+      |-----------------------------------------------
+      |Modais de aviso
+      |-----------------------------------------------
+     */
+    ?>
+    <?php
+    /*
+      |--------------------------------------------
+      |Tem que estar presente em todos os arquivos
+      |--------------------------------------------
+     */
+    ?>
+    <?php $this->loadView("index/parts/general/config_modais"); ?> 
+    <?php $this->loadView("index/parts/general/update_modais"); ?> 
+    <?php
+    /*
+      |-----------------------------------------------
+      |Início do bloco que tira os itens de sessão
+      |-----------------------------------------------
+     */
+    ?>
+</body>
+</html>

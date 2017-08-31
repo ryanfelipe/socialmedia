@@ -1,0 +1,17 @@
+<div id="conteudo" >
+    <div class="row clearfix" style="margin-bottom: 200px;">
+        <div class="col-md-12 column">
+            <div class="alert alert-success alert-dismissable" 
+                 style=" margin-bottom: 60px; 
+                         background-color: #fff;
+                         border: 0px">                
+                <h2 style="text-align: center">
+                    Atenção! <strong><?= Geekx\Session::get("send_pass_success"); ?></strong>                    
+                </h2> 
+                <?php Geekx\Session::delete("send_pass_success"); ?>              
+            </div>
+        </div>  
+    </div>
+</div>
+</div>
+</div>

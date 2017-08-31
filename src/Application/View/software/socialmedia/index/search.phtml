@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<?php
+/*
+|-----------------------------------------------
+|Carrega o head!
+|-----------------------------------------------   
+*/
+?>
+<?= $this->loadView("index/parts/general/head"); ?>
+<link rel="stylesheet" href="<?= STATIC_URL_INTO ?>/dist/css/search.css">
+</head>
+<body class="hold-transition skin-blue sidebar-mini fixed">
+    <div class="wrapper">
+
+        <?php
+        /*
+        |-----------------------------------------------
+        |Carrega o header!
+        |-----------------------------------------------
+        */
+        ?>
+        <?= $this->loadView("index/parts/general/header");?>
+
+        <?php
+        /*
+        |-----------------------------------------------
+        |Carrega o sidebar!
+        |-----------------------------------------------
+        */
+        ?>
+        <?= $this->loadView("index/parts/general/sidebar_left2"); ?>
+        <div class="content-wrapper">
+
+            <?php
+            /*
+            |-----------------------------------------------
+            |Breadcumb
+            |-----------------------------------------------
+            */
+            ?>
+            <section class="content-header">
+                <h1>
+                    Perfil de usuário
+                    <small>Social 1.0.2</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="<?= SITE_URL; ?>/index"><i class="fa fa-dashboard"></i>Home</a></li>
+                    <li class="active">
+                        Perfil de usuário
+                    </li>                        
+                </ol>
+            </section>
+            <section class="content">                                 
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="box">
+                            <div class="box-header">
+                                <h3 class="box-title">Consulta de Clientes</h3>
+                            </div>
+                            <div class="box-body">
+                                <table id="users" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>                 
+                                            <th>Image</th>
+                                            <th>Nome</th>
+                                            <th>E-mail</th>
+                                            <td></td>                                          
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <?php foreach ($usuarios as $usuario) : ?>            
+                                        <tr>                     
+                                            <td styel="background: #f00">
+                                                <img id="fotoperfil" src="<?= STATIC_URL_INTO.$usuario['fotoperfil']; ?>" 
+                                                class="img-circle" 
+                                                >
+                                            </td>
+                                            <td><?= $usuario["nome"].' '.$usuario["sobrenome"]; ?></td>
+                                            <td><?= $usuario["e"]; ?></td>
+                                            <td>
+                                                <a href="<?=SITE_URL?>/usuario/verUsuario/<?=$usuario['email']?>" 
+                                                class="btn btn-primary btn-sm">Visualizar Perfil</a>
+                                            </td>
+                                        </tr>
+
+                                    <?php endforeach; ?>                  
+
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th>Image</th>                          
+                                            <th>Nome</th>                               
+                                            <th>E-mail</th>
+                                            <td></td>                                 
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <?php
+        /*
+        |-----------------------------------------------
+        |Carrega o Control Sidebar
+        |-----------------------------------------------
+        */
+        ?>
+        <?= $this->loadView("index/parts/general/control_sidebar"); ?>
+        <div class="control-sidebar-bg"></div>
+    </div>
+
+    <?php
+    /*
+    |-----------------------------------------------
+    |Carrega os arquivos javascript
+    |-----------------------------------------------
+    */
+    ?>
+    <?php $this->loadView("index/parts/general/config_modais"); ?>
+    <?= $this->loadView("index/parts/index/load_js"); ?>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/notifications.js"></script>
+    <?php
+    /*
+    |-----------------------------------------------
+    |Itens de sessão
+    |-----------------------------------------------
+    */
+    ?>
+</body>
+</html>

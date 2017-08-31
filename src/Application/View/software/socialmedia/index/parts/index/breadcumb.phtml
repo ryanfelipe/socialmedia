@@ -1,0 +1,17 @@
+<section class="content-header">
+    <h1>
+        Perfil de usuário
+        <small>SOCIALMEDIA 1.0.1</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="<?= SITE_URL; ?>/index"><i class="fa fa-dashboard"></i>Home</a></li>
+        <li class="active">
+            Perfil de usuário
+        </li>
+        <?php if (Geekx\Session::get("editUser")): ?>
+            <li class="active">
+                Edição
+            </li>
+        <?php endif; ?>
+    </ol>
+</section>

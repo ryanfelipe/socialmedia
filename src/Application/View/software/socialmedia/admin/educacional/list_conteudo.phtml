@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Consulta de Clientes</h3>
+            </div>
+            <div class="box-body">
+                <table id="users" class="table table-bordered table-striped">
+                    <thead>
+                        <tr>                 
+                            <th>Título</th>
+                            <th>Descrição</th>
+                            <th>Link</th>
+                            <th>Categoria</th>
+                            <td></td>                                          
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    <?php foreach ($educacional as $ed) : ?>            
+                        <tr>                    
+                            <td><?= $ed["titulo"]; ?></td>
+                            <td><?= $ed["descricao"]; ?></td>
+                            <td>
+                                <textarea rows="4" class="form-control">
+                                    <?= $ed["link"]; ?>
+                                </textarea>
+                            </td>
+                            <td><?= $ed["categoria_edu_id"]; ?></td>                           
+                            <td>
+                                <a href="<?= SITE_URL; ?>/EdAdmin/editarConteudo/<?= $ed["id"];?>" 
+                                class="btn btn-primary btn-sm">Editar</a>
+                            </td>
+                        </tr>
+
+                    <?php endforeach; ?>                  
+
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <th>Título</th>                          
+                            <th>Descrição</th>                               
+                            <th>Link</th>
+                            <td>Categoria</td>                                 
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,96 @@
+<?php
+/*
+|-----------------------------------------------
+|Início do bloco que carrega a mensagem de erro.
+|-----------------------------------------------
+*/
+?>  
+<div class="row">
+    <?php if (Geekx\Session::get("erro_update")): ?>
+        <div class="col-md-8">           
+            <div class="box box-widget widget-user">
+                <div class="alert alert-warning alert-dismissible">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                    <?= Geekx\Session::get("erro_update"); ?>
+                </div>    
+            </div>    
+        </div>    
+
+    <?php elseif (Geekx\Session::get("conteudo_adicionado")): ?>
+        <div class="col-md-8">           
+            <div class="box box-widget widget-user">
+                <div class="alert alert-success alert-dismissible">
+                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+                    <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                    <?= Geekx\Session::get("conteudo_adicionado"); ?>
+                </div> 
+            </div> 
+        </div> 
+    <?php else: ?>     
+    <?php endif; ?>  
+    <?php
+    /*
+    |-----------------------------------------------
+    |Fim do bloco que carrega a mensagem de erro.
+    |-----------------------------------------------
+    */
+    ?>             
+    <div class="col-md-8">       
+        <div class="box box-danger">                
+            <div class="box-header with-border">
+                <h3 class="box-title">Adicionar Conteúdo</h3>
+            </div>                       
+            <form role="form" action="<?= SITE_URL; ?>/EdAdmin/adicionaConteudo" method="post">
+                <div class="box-body">
+                     <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label for="exampleInputEmail1">Categoria:</label>
+                                <select name="categoria" class="form-control" required="true">
+                                    <option value="0" selected="1">Selecione o tipo de categoria</option>
+                                    <?php foreach ($categorias as $categoria):?>
+                                        <option value="<?= $categoria["id"];?>"><?= $categoria["categoria"];?></option>
+                                    <?php endforeach; ?>                                
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Título:</label>
+                                <input class="form-control" name="titulo"
+                                       type="text" value="" required="true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Descrição</label>
+                                <textarea name="descricao" placeholder="Descrição do conteúdo..." 
+                                          rows="3" class="form-control" required="true"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Link:</label>
+                                <input class="form-control" name="link" type="text" value="" required="true">
+                            </div>
+                        </div>
+                    </div>                   
+                </div>
+                <div class="box-footer">
+                    <button type="submit" name="submit" class="btn btn-primary">Adicionar</button>
+                </div>
+            </form>
+        </div>
+    </div>   
+    <?php
+    /*
+    |----------------------------------------
+    |Submenu de edição.----------------------
+    |----------------------------------------
+    */
+    ?>
+    <?php $this->loadView("admin/educacional/buttons"); ?>
+ </div>

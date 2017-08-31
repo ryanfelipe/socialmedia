@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>   
+    <?php $this->loadView("software/socialmedia/index/parts/general/head"); ?>
+</head>
+<body class="hold-transition skin-red-light sidebar-mini fixed">
+    <div class="wrapper">
+        <?php $this->loadView("software/socialmedia/index/parts/general/header"); ?>
+        <?php $this->loadView("software/socialmedia/index/parts/general/sidebar_left2"); ?>
+        <div class="content-wrapper">
+            <?php
+            /*
+              |----------------------------------
+              |Carrega o breadcumb!
+              |----------------------------------
+             */
+            ?>
+            <?php $this->loadView("software/socialmedia/index/parts/sol/breadcumb"); ?>
+            <?php
+            /*
+              |---------------------------------------------------------------------------------
+              |Se o convite_page estiver na sessão abrea página para envio de novos convites
+              |convite_page é colocado na sessão quando o item de novos convites é clicado na
+              |página padrão de convites.
+              |---------------------------------------------------------------------------------
+             */
+            ?>
+            <?php if (Geekx\Session::get("convite_page")): ?>
+                <?php
+                /*
+                  |-------------------------------------------
+                  |Carrega á página de envio de convites!
+                  |-------------------------------------------
+                 */
+                ?>
+                <?php $this->loadView("software/socialmedia/index/convite"); ?>
+            <?php else: ?>
+                <?php
+                /* -----------------------------------------------
+                  |Esse bloco verifica as possibilidades
+                  |de carregamento para a visualização dos tipos
+                  |de convite.
+                  |Essa primeira verificação carrega os convites
+                  |externos pendentes.
+                  |-----------------------------------------------
+                 */
+                ?>
+                <?php if (Geekx\Session::get("convites_externos_pendentes")): ?>
+                    <?php
+                    /*
+                      |-------------------------------------------
+                      |Verifica se os convites estão carregados
+                      |-------------------------------------------
+                     */
+                    ?>
+                    <?php if ($convites): ?>
+                        <?php
+                        $dados['convites'] = $convites;
+                        $this->loadView("software/socialmedia/index/parts/sol/ext_pen", $dados);
+                        ?>
+                    <?php else: ?>
+                        <div class="pad margin no-print">
+                            <div style="margin-bottom: 0!important;" class="callout callout-info">
+                                <h4><i class="fa fa-info"></i> Nota:</h4>
+                                <h4>Você não tem solicitações externas para visualizar!</h4>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                    <?php Geekx\Session::delete("convites_externos_pendentes"); ?>
+                    <?php
+                    /*
+                      |-----------------------------------------
+                      |Carrega os convites internos pendentes
+                      |-----------------------------------------
+                     */
+                    ?>
+                <?php elseif (Geekx\Session::get("convites_internos_pendentes")): ?>
+                    <?php if ($convites): ?>
+                        <?php
+                        $dados['convites'] = $convites;
+                        $this->loadView("software/socialmedia/index/parts/sol/int_pen", $dados);
+                        ?>
+
+                    <?php else: ?>
+                        <div class="pad margin no-print">
+                            <div style="margin-bottom: 0!important;" class="callout callout-info">
+                                <h4><i class="fa fa-info"></i> Nota:</h4>
+                                <h4>Você não tem solicitações internas para visualizar!</h4>
+                            </div>
+                        </div>
+
+                    <?php endif; ?>
+
+                    <?php Geekx\Session::delete("convites_internos_pendentes"); ?>
+                    <?php
+                    /*
+                      |-----------------------------------------------
+                      |Verificaca se o usuário recebeu algum convite
+                      |-----------------------------------------------
+                     */
+                    ?>
+                <?php elseif (Geekx\Session::get("convites_recebidos")): ?>
+
+                    <?php if ($convites): ?>
+
+                        <?php
+                        $dados['convites'] = $convites;
+                        $this->loadView("software/socialmedia/index/parts/sol/recebidos", $dados);
+                        ?>
+
+                    <?php else: ?>
+
+                        <div class="pad margin no-print">
+                            <div style="margin-bottom: 0!important;" class="callout callout-info">
+                                <h4><i class="fa fa-info"></i> Nota:</h4>
+                                <h4>Você não tem enhuma solicitação para aprovar!</h4>
+                            </div>
+                        </div>
+
+                    <?php endif; ?>
+
+                    <?php Geekx\Session::delete("convites_recebidos"); ?>
+
+                <?php else: ?>
+
+                    <section class="content" id="conteudo">                        
+
+                        <?php
+                        /*
+                          |-----------------Principal-----------------------
+                          |Carrega os componentes básicos da página - Início
+                          |-----------------Principal-----------------------
+                         */
+                        ?>
+                        <?php $this->loadView("software/socialmedia/index/parts/sol/component_line_01"); ?>                       
+                    </section>
+
+                <?php endif; ?>
+
+            <?php endif; ?>
+        </div>            
+        <?php
+        /*
+          |-----------------------------------------------
+          |Control Sidebar
+          |-----------------------------------------------
+         */
+        ?>
+        <?php $this->loadView("software/socialmedia/index/parts/general/control_sidebar"); ?>      
+
+        <div class="control-sidebar-bg"></div>
+    </div>
+    <?php
+    /*
+      |-----------------------------------------------
+      |Início do bloco que carrega o Js
+      |-----------------------------------------------
+     */
+    ?>
+    <?php $this->loadView("software/socialmedia/index/parts/general/config_modais"); ?>
+    <?php $this->loadView("software/socialmedia/index/parts/index/load_js"); ?>       
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/convs.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/notifications.js"></script>
+    <script src="<?= STATIC_URL_INTO ?>/dist/js/search_advanced.js"></script>
+
+    <?php if (Geekx\Session::get("busca_avancada")): ?>
+
+        <?php Geekx\Session::delete("busca_avancada"); ?>
+
+    <?php endif; ?>
+
+    <?php if (Geekx\Session::get("convite_page")): ?>
+
+        <?php Geekx\Session::delete("convite_page"); ?>
+
+    <?php endif; ?>
+
+    <?php if (Geekx\Session::get("erro_convite")): ?>
+
+        <?php Geekx\Session::delete("erro_convite"); ?>
+
+    <?php endif; ?>
+
+    <?php if (Geekx\Session::get("erro_convidado")): ?>
+
+        <?php Geekx\Session::delete("erro_convidado"); ?>
+
+    <?php endif; ?>
+
+    <?php if (Geekx\Session::get("convite_sucesso")): ?>
+
+        <?php Geekx\Session::delete("convite_sucesso"); ?>
+
+    <?php endif; ?>    
+
+</body>
+</html>
