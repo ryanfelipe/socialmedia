@@ -1,14 +1,9 @@
 <!DOCTYPE HTML>
-
 <html>
-
     <head>
         <title>Erro =(</title>
-
         <meta charset="utf-8">
-
         <link href="<?= STATIC_URL ?>/bootstrap.min.css" rel="stylesheet">
-       
         <style>
             body {background-color: #FDFDFA;color: #090000;font-family: Georgia,"Times New Roman",Times,serif;font-size: 17px;line-height: 1.3em;margin: 0;}
             .error {padding: 50px; text-align: center;}
@@ -17,26 +12,15 @@
             a {color: #666666; text-decoration:none;}
             a:hover {color: #cecece; text-decoration:underline;}
         </style>
-
     </head>
-
     <body>
-
         <div class="error">
-
             <img alt="Erro" src="<?= IMG_URL ?>/error.png" />
-           
-
             <h1>Ocorreu um erro :/</h1>
-
             <?php if (isset($erro)): ?>
                 <p><?= $erro; ?></p>
             <?php endif; ?>
-
-            <p><a href="<?= SITE_URL; ?>">Voltar para a index</a></p>
-
+            <p><a href="<?= SITE_URL; ?>">Voltar para a página principal</a></p>
         </div>
-
     </body>
-
 </html>
