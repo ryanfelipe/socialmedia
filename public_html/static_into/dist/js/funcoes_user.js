@@ -94,7 +94,7 @@ $(document).ready(function(){
                 if(dados.fotocapa == 'null'){
                     $("#capa_user").css({"background": "#F4F4F4", "min-height": "220px", "cursor": "pointer", "min-width": "600px"});
                 }else{
-                    $("#capa_user").css({"background": `url('http://localhost/mindmon$/public_html/static_into/dist/img/into/${dados.fotocapa}') center center`, "center": "center", "center": "center", "min-height": "220px", "cursor": "pointer", "min-width": "600px"});
+                    $("#capa_user").css({"background": `url('http://localhost/socialmedia/public_html/static_into/dist/img/into/${dados.fotocapa}') center center`, "center": "center", "center": "center", "min-height": "220px", "cursor": "pointer", "min-width": "600px"});
 
                 }
 

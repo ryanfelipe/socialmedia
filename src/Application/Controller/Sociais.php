@@ -115,7 +115,7 @@ class Sociais extends Controller {
             Common::redir('index');
         }
         Session::set("editLinksSociais", "Edita os links sociais!");
-        $this->loadView("index/index");
+        $this->loadView("software/socialmedia/index/index");
         Session::delete("editLinksSociais");
     }
     /*

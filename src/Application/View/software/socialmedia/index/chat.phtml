@@ -7,8 +7,8 @@
       |-----------------------------------------------
      */
     ?>
-    <?php $this->loadView("index/parts/chat/head"); ?>
-    <body class="hold-transition skin-blue">
+    <?php $this->loadView("software/socialmedia/index/parts/chat/head"); ?>
+    <body class="hold-transition skin-red-light">
         <!--sidebar-mini fixed control-sidebar-open-->
         <div class="wrapper">
             <?php
@@ -19,7 +19,7 @@
              */
             ?>
             <?php
-            $this->loadView("index/parts/general/header");
+            $this->loadView("software/socialmedia/index/parts/general/header");
             ?>
             <?php
             /*
@@ -29,7 +29,7 @@
              */
             ?>
             <?php
-            $this->loadView("index/parts/general/sidebar_left2");
+            $this->loadView("software/socialmedia/index/parts/general/sidebar_left2");
             ?>
             <div class="content-wrapper">
                 <?php
@@ -40,7 +40,7 @@
                  */
                 ?>
                 <?php
-                $this->loadView("index/parts/chat/breadcrumb");
+                $this->loadView("software/socialmedia/index/parts/chat/breadcrumb");
                 ?>
                 <section class="content conteudo_chat" id="conteudo">
                     <?php
@@ -50,7 +50,7 @@
                       |----------------------------------
                      */
                     ?>                 
-                    <?php $this->loadView("index/parts/chat/conversa"); //Equanto não tiverem conversas carregadas essa linha é carregada por padrão?>
+                    <?php $this->loadView("software/socialmedia/index/parts/chat/conversa"); //Equanto não tiverem conversas carregadas essa linha é carregada por padrão?>
                 </section>
             </div>            
             <?php
@@ -63,7 +63,7 @@
             <?php
             $dados_user['usuario'] = $usuario;
             $friends['amigos'] = $amigos;
-            $this->loadView("index/parts/chat/control_sidebar", $dados_user, $friends);
+            $this->loadView("software/socialmedia/index/parts/chat/control_sidebar", $dados_user, $friends);
             ?>
             <div class="control-sidebar-bg"></div>
             <?php
@@ -83,8 +83,8 @@
           |-----------------------------------------------
          */
         ?>
-        <?php $this->loadView("index/parts/general/config_modais"); ?>
-        <?php $this->loadView("index/parts/chat/load_js"); ?>
+        <?php $this->loadView("software/socialmedia/index/parts/general/config_modais"); ?>
+        <?php $this->loadView("software/socialmedia/index/parts/chat/load_js"); ?>
         <?php
         /*
           |-----------------------------------------------
@@ -92,6 +92,6 @@
           |-----------------------------------------------
          */
         ?>
-        <?php $this->loadView("index/parts/chat/modais"); ?>
+        <?php $this->loadView("software/socialmedia/index/parts/chat/modais"); ?>
     </body>
 </html>

@@ -35,7 +35,7 @@ class Chat extends Controller {
         |Passa os dados do usuário e de seus amigos para a view.
         |-------------------------------------------------------
         */
-        $this->loadView("index/chat", $dados_user, $friends);
+        $this->loadView("software/socialmedia/index/chat", $dados_user, $friends);
     }
     /*
     |------------------------------------------------
