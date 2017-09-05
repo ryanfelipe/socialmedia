@@ -11,13 +11,13 @@ class Index extends Controller {
 
         if (!Session::get("logado")) {
             Session::destroy();
-            Common::redir('home');
+            Common::redir('login');
         } else if (Session::get("logado") && Session::get("id_usuario")) {
             $this->loadModel('Application\Model\Usuario', 'usuario');
             $this->loadModel('Application\Model\Colaborador', 'colaborador');
         } else {
           Session::destroy();
-          Common::redir('home');
+          Common::redir('login');
         }
 
     }

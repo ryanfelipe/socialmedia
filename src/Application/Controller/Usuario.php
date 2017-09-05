@@ -601,7 +601,7 @@ class Usuario extends Controller {
             $email_para = $this->usuario->getEmailParaDecript($busca);
             $dados['usuario'] = $this->usuario->verUsuarioAmigo($email_para);
             $dados2['amigos'] = $this->colaborador->getNumAmigos($id_para);
-            $this->loadView("index/usuario_my_friend", $dados, $dados2);
+            $this->loadView("software/socialmedia/index/usuario_my_friend", $dados, $dados2);
             /*
               |---------------------------------------
               |Exibe um usuário não amigo.------------
@@ -618,7 +618,7 @@ class Usuario extends Controller {
               |-------------------------------------------------------------------------------------
              */
             $dados3['convite_interno'] = $this->convite->conEnvPenIntEsp($email_de, $email_para)[0];
-            $this->loadView("index/usuario_not_friend", $dados, $dados2, $dados3);
+            $this->loadView("software/socialmedia/index/usuario_not_friend", $dados, $dados2, $dados3);
         }
     }
 
@@ -643,7 +643,7 @@ class Usuario extends Controller {
           |----------------------------------------
          */
         $dados2['amigos'] = $this->colaborador->getNumAmigos($id_para);
-        $this->loadView("index/usuario_my_friend", $dados, $dados2);
+        $this->loadView("software/socialmedia/index/usuario_my_friend", $dados, $dados2);
     }
 
     public function updatePass() {
