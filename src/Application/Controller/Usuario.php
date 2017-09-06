@@ -30,7 +30,7 @@ class Usuario extends Controller {
         $search_advanced = (string) filter_input(INPUT_POST, 'search_advanced');
         $result['userData'] = $this->usuario->searchAdvanced($search_advanced, $id);
         Session::set('listUsersAdv', TRUE);
-        $this->loadView('index/index', $result);
+        $this->loadView('software/socialmedia/index/index', $result);
     }
 
     public function refMessages() {
@@ -145,38 +145,7 @@ class Usuario extends Controller {
         $dia = (string) filter_input(INPUT_POST, 'dia');
         $mes = (string) filter_input(INPUT_POST, 'mes');
         $ano = (int) filter_input(INPUT_POST, 'ano');
-        /*
-          |--------------------------------
-          |Preferências de investimento.
-          |--------------------------------
-         */
-        $pref1 = (string) filter_input(INPUT_POST, 'optionsRadiosP1');
-        /*
-          |-------------------------------------------
-          |Verifica o valor da preferência 1.
-          |-------------------------------------------
-         */
-        if ($pref1 == "") {
-            $pref1 = 'Não informado';
-        }
-        $pref2 = (string) filter_input(INPUT_POST, 'optionsRadiosP2');
-        /*
-          |-------------------------------------------
-          |Verifica o valor da preferência 2.
-          |-------------------------------------------
-         */
-        if ($pref2 == "") {
-            $pref2 = 'Não informado';
-        }
-        $pref3 = (string) filter_input(INPUT_POST, 'optionsRadiosP3');
-        /*
-          |-------------------------------------------
-          |Verifica o valor da preferência 3.
-          |-------------------------------------------
-         */
-        if ($pref3 == "") {
-            $pref3 = "Não informado";
-        }
+       
         $this->gravarDefinitivamente($nome, $sobrenome, $email_passado, $senha, $senha_segura, $confirma_senha, $genero, $dia, $mes, $ano, $pref1, $pref2, $pref3);
     }
 
@@ -187,13 +156,8 @@ class Usuario extends Controller {
       |------------------------------------------------------------
      */
 
-    public function gravarDefinitivamente($nome, $sobrenome, $email_passado, $senha, $senha_segura, $confirma_senha, $genero, $dia, $mes, $ano, $pref1, $pref2, $pref3) {
-
-        // echo $pref1.'<br/>';
-        // echo $pref2.'<br/>';
-        // echo $pref3.'<br/>';
-        // echo $email_passado;
-        // die;
+    public function gravarDefinitivamente($nome, $sobrenome, $email_passado, $senha, $senha_segura, $confirma_senha, $genero, $dia, $mes, $ano) {
+      
         /*
           |---------------------------------------------------------
           |Verifica se existe um convite para o usuário no sistema.
@@ -241,14 +205,7 @@ class Usuario extends Controller {
           |Retorna o id da pessoa que se cadastrou na linha acima.
           |--------------------------------------------------------
          */
-        $id_convidado = $this->usuario->getIdByEmail($email_passado);
-        /*
-          |--------------------------------------------------
-          |Arrays com as preferências de investimento.-------
-          |--------------------------------------------------
-         */
-        $preferencias = $this->gerarPrefInvest($pref1, $pref2, $pref3, $id_convidado["id"]);
-        $this->invest->cadastrar($preferencias);
+        $id_convidado = $this->usuario->getIdByEmail($email_passado);        
         /*
           |-----------------------------------
           |Retorna o e-mail do anfitrião.
@@ -707,7 +664,7 @@ class Usuario extends Controller {
           |-----------------------------------------------------------------
          */
         $dados['usuarios'] = $this->usuario->searchUser($id, $nome);
-        $this->loadView('index/search', $dados);
+        $this->loadView('software/socialmedia/index/search', $dados);
     }
 
     public function desfazerAmizade() {

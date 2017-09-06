@@ -26,7 +26,7 @@ class Admin extends Controller {
         $id = (int)Session::get('id_admin');
         $admin['admin'] = $this->admin->getById($id);
         $dados['usuarios'] = $this->usuario->getAllUsers();
-        $this->loadView('admin/index', $dados, $admin);
+        $this->loadView('software/socialmedia/admin/index', $dados, $admin);
     }
     public function logout() {
         Session::delete("logado_admin");

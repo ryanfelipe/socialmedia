@@ -13,7 +13,7 @@
 */
 define('DB_TYPE', 'mysql');
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'cherrychat080217');
+define('DB_NAME', 'socialmedia');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 /*

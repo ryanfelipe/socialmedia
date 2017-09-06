@@ -7,10 +7,10 @@
 |-----------------------------------------------   
 */
 ?>
-<?= $this->loadView("index/parts/general/head"); ?>
+<?= $this->loadView("software/socialmedia/index/parts/general/head"); ?>
 <link rel="stylesheet" href="<?= STATIC_URL_INTO ?>/dist/css/search.css">
 </head>
-<body class="hold-transition skin-blue sidebar-mini fixed">
+<body class="hold-transition skin-red-light sidebar-mini fixed">
     <div class="wrapper">
 
         <?php
@@ -20,7 +20,7 @@
         |-----------------------------------------------
         */
         ?>
-        <?= $this->loadView("index/parts/general/header");?>
+        <?= $this->loadView("software/socialmedia/index/parts/general/header");?>
 
         <?php
         /*
@@ -29,7 +29,7 @@
         |-----------------------------------------------
         */
         ?>
-        <?= $this->loadView("index/parts/general/sidebar_left2"); ?>
+        <?= $this->loadView("software/socialmedia/index/parts/general/sidebar_left2"); ?>
         <div class="content-wrapper">
 
             <?php
@@ -112,7 +112,7 @@
         |-----------------------------------------------
         */
         ?>
-        <?= $this->loadView("index/parts/general/control_sidebar"); ?>
+        <?= $this->loadView("software/socialmedia/index/parts/general/control_sidebar"); ?>
         <div class="control-sidebar-bg"></div>
     </div>
 
@@ -123,8 +123,8 @@
     |-----------------------------------------------
     */
     ?>
-    <?php $this->loadView("index/parts/general/config_modais"); ?>
-    <?= $this->loadView("index/parts/index/load_js"); ?>
+    <?php $this->loadView("software/socialmedia/index/parts/general/config_modais"); ?>
+    <?= $this->loadView("software/socialmedia/index/parts/index/load_js"); ?>
     <script src="<?= STATIC_URL_INTO ?>/dist/js/notifications.js"></script>
     <?php
     /*

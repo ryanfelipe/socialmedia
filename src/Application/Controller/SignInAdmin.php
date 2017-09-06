@@ -13,7 +13,7 @@ class SignInAdmin extends Controller {
         $this->loadModel('Application\Model\Admin', 'admin');
     }
     public function main() {
-        $this->loadView("sign_in_admin/index");
+        $this->loadView("software/socialmedia/sign_in_admin/index");
     }
     public function processar($admin) {
         $email = (string) filter_input(INPUT_POST, 'input-email');

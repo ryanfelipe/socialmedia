@@ -7,7 +7,7 @@
     |-----------------------------------------------
     */
     ?>
-    <?php $this->loadView("index/parts/general/head"); ?>
+    <?php $this->loadView("software/socialmedia/index/parts/general/head"); ?>
     </head>
     <body class="hold-transition skin-red-light sidebar-mini fixed">
 
@@ -18,7 +18,7 @@
             //-----------------------------------------------
             ?>
             <?php
-            $this->loadView("index/parts/general/header");
+            $this->loadView("software/socialmedia/index/parts/general/header");
             ?>
             <?php
             //-----------------------------------------------
@@ -26,7 +26,7 @@
             //-----------------------------------------------
             ?>
             <?php
-            $this->loadView("index/parts/general/sidebar_left2");
+            $this->loadView("software/socialmedia/index/parts/general/sidebar_left2");
             ?>
             <div class="content-wrapper">
 
@@ -54,15 +54,15 @@
 
                 <?php if (Geekx\Session::get("erro_convite")): // Abrea página para envio de novos convites?>
 
-                    <?php $this->loadView("index/ocorrencias_convite"); ?>
+                    <?php $this->loadView("software/socialmedia/index/ocorrencias_convite"); ?>
 
                 <?php elseif (Geekx\Session::get("convite_sucesso")): ?>
 
-                    <?php $this->loadView("index/ocorrencias_convite"); ?>
+                    <?php $this->loadView("software/socialmedia/index/ocorrencias_convite"); ?>
 
                 <?php elseif (Geekx\Session::get("erro_convidado")): ?>
 
-                    <?php $this->loadView("index/ocorrencias_convite"); ?>
+                    <?php $this->loadView("software/socialmedia/index/ocorrencias_convite"); ?>
 
                 <?php else: ?>                    
 
@@ -73,7 +73,7 @@
             // Control Sidebar
             //-----------------------------------------------
             ?>
-            <?php $this->loadView("index/parts/general/control_sidebar"); ?>                    
+            <?php $this->loadView("software/socialmedia/index/parts/general/control_sidebar"); ?>                    
 
             <div class="control-sidebar-bg"></div>
         </div>
@@ -82,8 +82,8 @@
         // Início do bloco que carrega o Js
         //-----------------------------------------------
         ?>
-        <?php $this->loadView("index/parts/general/config_modais"); ?>
-        <?php $this->loadView("index/parts/index/load_js"); ?>
+        <?php $this->loadView("software/socialmedia/index/parts/general/config_modais"); ?>
+        <?php $this->loadView("software/socialmedia/index/parts/index/load_js"); ?>
         <script src="<?= STATIC_URL_INTO ?>/dist/js/funcoes_user.js"></script>
         <script src="<?= STATIC_URL_INTO ?>/dist/js/search_ind_page.js"></script>      
 
