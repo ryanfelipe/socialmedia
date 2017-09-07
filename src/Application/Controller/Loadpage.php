@@ -18,11 +18,11 @@ class Loadpage extends Controller {
     */
     public function loadPagesLogin($page) {        
         if($page == 'sobre'){
-            $this->loadView("software/social/login/partes/geral/sobre");
+            $this->loadView("software/socialmedia/login/partes/general/sobre");
         }elseif($page == 'politica'){
-            $this->loadView("software/social/login/partes/geral/politica");
+            $this->loadView("software/socialmedia/login/partes/general/politica");
         }elseif('termos'){
-            $this->loadView("software/social/login/partes/geral/termos");
+            $this->loadView("software/socialmedia/login/partes/general/termos");
         }else{
             echo 'Erro ao carregar conteúdo!';
         }        
