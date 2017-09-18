@@ -13,7 +13,6 @@ class Usuario extends Controller {
         $this->loadModel('Application\Model\Usuario', 'usuario');
         $this->loadModel('Application\Model\Convite', 'convite');
         $this->loadModel('Application\Model\Colaborador', 'colaborador');
-        $this->loadModel('Application\Model\Invest', 'invest');
     }
 
     public function main() {

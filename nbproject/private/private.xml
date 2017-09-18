@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/xampp/htdocs/socialmedia/src/Application/View/software/socialmedia/admin/parts/sidebar_left2.phtml</file>
             <file>file:/C:/xampp/htdocs/socialmedia/src/Application/Model/EditDataPages.php</file>
+            <file>file:/C:/xampp/htdocs/socialmedia/src/Application/Controller/Usuario.php</file>
             <file>file:/C:/xampp/htdocs/socialmedia/src/Application/Controller/EditDataPages.php</file>
         </group>
     </open-files>
