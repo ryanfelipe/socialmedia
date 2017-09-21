@@ -12,33 +12,9 @@
 </head>
 <body class="hold-transition skin-red-light sidebar-mini fixed">
     <div class="wrapper">
-
-        <?php
-        /*
-        |-----------------------------------------------
-        |Carrega o header!
-        |-----------------------------------------------
-        */
-        ?>
         <?= $this->loadView("software/socialmedia/index/parts/general/header");?>
-
-        <?php
-        /*
-        |-----------------------------------------------
-        |Carrega o sidebar!
-        |-----------------------------------------------
-        */
-        ?>
         <?= $this->loadView("software/socialmedia/index/parts/general/sidebar_left2"); ?>
         <div class="content-wrapper">
-
-            <?php
-            /*
-            |-----------------------------------------------
-            |Breadcumb
-            |-----------------------------------------------
-            */
-            ?>
             <section class="content-header">
                 <h1>
                     Perfil de usuário
@@ -52,7 +28,6 @@
                 </ol>
             </section>
             <section class="content">                                 
-                
                 <div class="row">
                     <div class="col-md-12">
                         <div class="box">
@@ -104,34 +79,11 @@
                 </div>
             </section>
         </div>
-
-        <?php
-        /*
-        |-----------------------------------------------
-        |Carrega o Control Sidebar
-        |-----------------------------------------------
-        */
-        ?>
         <?= $this->loadView("software/socialmedia/index/parts/general/control_sidebar"); ?>
         <div class="control-sidebar-bg"></div>
     </div>
-
-    <?php
-    /*
-    |-----------------------------------------------
-    |Carrega os arquivos javascript
-    |-----------------------------------------------
-    */
-    ?>
     <?php $this->loadView("software/socialmedia/index/parts/general/config_modais"); ?>
     <?= $this->loadView("software/socialmedia/index/parts/index/load_js"); ?>
     <script src="<?= STATIC_URL_INTO ?>/dist/js/notifications.js"></script>
-    <?php
-    /*
-    |-----------------------------------------------
-    |Itens de sessão
-    |-----------------------------------------------
-    */
-    ?>
 </body>
 </html>

@@ -42,7 +42,7 @@ class Usuario extends Controller {
         return die(json_encode($this->usuario->getById(1)));
     }
 
-    //Retrona os amigos do usuário em formato JSON.
+    //Retorna os amigos do usuário em formato JSON.
     public function retornaAmigos() {
         $id = Session::get("id_usuario");
         $num = $this->colaborador->getNumAmigos($id);
